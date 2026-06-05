@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glow Up Era · Vision Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* defaults — overridden by palette tweak via inline vars on .app */
+    --cream: #fdf7f3;
+    --paper: #fffdfb;
+    --ink: #6f4d57;
+    --ink-soft: #a98792;
+    --rose: #e79aab;
+    --rose-deep: #d4738a;
+    --blush: #f4ccd6;
+    --blush-soft: #fbe6ec;
+    --butter: #efe2a0;
+    --sage: #bcd1ab;
+    --sage-deep: #a3bf8c;
+    --lilac: #c3bce0;
+    --radius: 18px;
+    --title-font: 'Playfair Display', serif;
+  }
+
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Quicksand', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 700px at 80% -10%, var(--blush-soft), transparent 60%),
+      radial-gradient(900px 600px at -10% 110%, color-mix(in oklab, var(--sage) 50%, var(--cream)), transparent 55%),
+      var(--cream);
+    background-attachment: fixed;
+  }
+
+  .app { position: relative; min-height: 100vh; overflow: hidden; }
+
+  /* ---------- ambient decoration ---------- */
+  .decor { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(48px); opacity: 0.5; }
+  .orb.a { width: 360px; height: 360px; background: var(--butter); top: -80px; right: 8%; animation: drift 22s ease-in-out infinite; }
+  .orb.b { width: 300px; height: 300px; background: var(--sage); bottom: -60px; left: 4%; animation: drift 26s ease-in-out infinite reverse; }
+  .orb.c { width: 240px; height: 240px; background: var(--blush); top: 38%; left: 46%; animation: drift 30s ease-in-out infinite; opacity: 0.32; }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-26px, 30px) scale(1.08); }
+  }
+  .twinkle { position: absolute; color: var(--rose-deep); opacity: 0; animation: twinkle 6s ease-in-out infinite; font-size: 14px; }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.4) rotate(0deg); }
+    50% { opacity: 0.55; transform: scale(1) rotate(20deg); }
+  }
+  .decor-off .decor { display: none; }
+
+  /* ---------- shell ---------- */
+  .shell { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 56px 32px 80px; }
+
+  /* ---------- header ---------- */
+  .masthead { text-align: center; margin-bottom: 12px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: 0.42em; text-transform: uppercase;
+    color: var(--rose-deep); font-weight: 600; margin-bottom: 14px;
+  }
+  .masthead h1 {
+    font-family: var(--title-font); font-weight: 500; font-size: clamp(40px, 6vw, 66px);
+    line-height: 1.02; color: var(--ink); letter-spacing: 0.5px;
+  }
+  .masthead h1 .star { color: var(--rose); font-size: 0.5em; vertical-align: middle; margin: 0 0.28em; }
+  .masthead .dates {
+    margin-top: 12px; font-size: 15px; color: var(--ink-soft); font-style: italic;
+    font-family: var(--title-font);
+  }
+
+  /* overall progress strip */
+  .overview {
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    margin: 34px auto 48px; max-width: 720px;
+    background: var(--paper);
+    border: 1px solid color-mix(in oklab, var(--rose) 28%, transparent);
+    border-radius: 26px; padding: 22px 30px;
+    box-shadow: 0 24px 60px -34px color-mix(in oklab, var(--rose-deep) 60%, transparent);
+  }
+  .overview .ring-wrap { position: relative; flex-shrink: 0; }
+  .overview .ring-center {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .overview .ring-center .num { font-family: var(--title-font); font-size: 26px; color: var(--ink); line-height: 1; }
+  .overview .ring-center .lbl { font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); margin-top: 3px; }
+  .ov-stats { display: flex; gap: 14px; flex-wrap: wrap; }
+  .ov-stat {
+    text-align: center; min-width: 92px; padding: 10px 14px;
+    background: color-mix(in oklab, var(--blush-soft) 70%, var(--paper));
+    border: 1px solid color-mix(in oklab, var(--rose) 18%, transparent);
+    border-radius: 16px;
+  }
+  .ov-stat .n { font-family: var(--title-font); font-size: 24px; color: var(--rose-deep); line-height: 1; }
+  .ov-stat .t { font-size: 10.5px; letter-spacing: 0.04em; color: var(--ink-soft); margin-top: 5px; }
+
+  .ov-main { display: flex; align-items: center; justify-content: center; gap: 34px; flex-wrap: wrap; }
+  .ov-monthnav { display: flex; align-items: center; gap: 14px; }
+  .ov-monthnav .ov-arrow {
+    width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; cursor: pointer;
+    border: 1px solid color-mix(in oklab, var(--rose) 36%, transparent);
+    background: var(--paper); color: var(--rose-deep); font-size: 16px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.18s, transform 0.18s, opacity 0.18s;
+  }
+  .ov-monthnav .ov-arrow:hover:not(:disabled) { background: var(--blush-soft); transform: scale(1.08); }
+  .ov-monthnav .ov-arrow:disabled { opacity: 0.3; cursor: default; }
+  .ov-monthnav .ov-month-label {
+    font-family: var(--title-font); font-size: 19px; color: var(--ink);
+    display: flex; align-items: center; gap: 9px; min-width: 168px; justify-content: center;
+  }
+
+  /* ---------- board (masonry) ---------- */
+  .board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+  @media (max-width: 940px) { .board { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .board { grid-template-columns: 1fr; } }
+
+  .tile {
+    --bloom: 0;
+    width: 100%; position: relative;
+    background: var(--paper);
+    border-radius: calc(var(--radius) + 6px);
+    border: 1px solid color-mix(in oklab, var(--rose) calc(16% + var(--bloom) * 20%), transparent);
+    overflow: hidden; position: relative;
+    box-shadow:
+      0 18px 44px -30px color-mix(in oklab, var(--rose-deep) 70%, transparent),
+      0 0 calc(var(--bloom) * 46px) color-mix(in oklab, var(--rose) calc(var(--bloom) * 38%), transparent);
+    transition: box-shadow 0.6s ease, border-color 0.6s ease, transform 0.35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .tile:hover { transform: translateY(-4px); }
+
+  .tile-photo { position: relative; width: 100%; overflow: hidden; }
+  .tile-photo image-slot { display: block; width: 100%; height: 100%; }
+  .tile-photo image-slot::part(placeholder) { font-family: 'Quicksand', sans-serif; }
+
+  /* watercolour wash that blooms in */
+  .tile-wash {
+    position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply;
+    opacity: calc(0.12 + var(--bloom) * 0.62);
+    transition: opacity 0.7s ease;
+  }
+  .tile-photo .ph-tint { filter: saturate(calc(0.55 + var(--bloom) * 0.7)); transition: filter 0.7s ease; }
+
+  .tile-pct-badge {
+    position: absolute; top: 12px; left: 12px; z-index: 3;
+    background: color-mix(in oklab, var(--paper) 82%, transparent);
+    backdrop-filter: blur(6px);
+    border: 1px solid color-mix(in oklab, var(--rose) 40%, transparent);
+    color: var(--rose-deep); font-weight: 700; font-size: 12px;
+    padding: 4px 11px; border-radius: 99px; letter-spacing: 0.02em;
+  }
+
+  .tile-ribbon {
+    position: absolute; top: 12px; right: 12px; z-index: 3;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    padding: 5px 12px; border-radius: 99px;
+    box-shadow: 0 8px 20px -8px var(--rose-deep);
+    animation: ribbonPop 0.5s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes ribbonPop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  .tile-sparkles { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .tile-sparkles span {
+    position: absolute; color: #fff; font-size: 15px;
+    text-shadow: 0 1px 6px color-mix(in oklab, var(--rose-deep) 70%, transparent);
+    opacity: calc(var(--bloom) * var(--bloom)); transition: opacity 0.7s ease;
+    animation: floaty 5s ease-in-out infinite;
+  }
+  .tile-sparkles span:nth-child(1) { top: 18%; left: 16%; animation-delay: 0s; }
+  .tile-sparkles span:nth-child(2) { top: 62%; left: 78%; font-size: 11px; animation-delay: 1.2s; }
+  .tile-sparkles span:nth-child(3) { top: 78%; left: 24%; font-size: 13px; animation-delay: 2.1s; }
+  .tile-sparkles span:nth-child(4) { top: 30%; left: 64%; font-size: 10px; animation-delay: 0.6s; }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-7px) rotate(18deg); }
+  }
+
+  .tile-body { padding: 16px 18px 18px; cursor: pointer; }
+  .tile-head { display: flex; align-items: center; gap: 11px; }
+  .tile-icon {
+    width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+    background: var(--blush-soft);
+    border: 1px solid color-mix(in oklab, var(--rose) 26%, transparent);
+  }
+  .tile-title { font-family: var(--title-font); font-weight: 500; font-size: 19px; color: var(--ink); line-height: 1.1; text-transform: capitalize; }
+  .tile-sub { font-size: 12.5px; line-height: 1.5; color: var(--ink-soft); margin: 9px 1px 13px; text-wrap: pretty; }
+
+
+  .tile-head { display: flex; align-items: center; gap: 11px; }
+  .tile-head .tile-title { flex: 1; min-width: 0; }
+  .tile-stars { display: flex; gap: 3px; align-items: center; flex-shrink: 0; }
+  .tile-star { font-size: 16px; line-height: 1; display: flex; align-items: center; transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), opacity 0.4s; }
+  .tile-star-img { width: 18px; height: 18px; object-fit: contain; display: block; }
+  .tile-star.filled { filter: drop-shadow(0 1px 3px rgba(220,100,160,0.5)); transform: scale(1.1); }
+  .tile-star.empty  { opacity: 0.2; filter: grayscale(0.5); transform: scale(0.9); }
+
+  .tile-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 10px; font-size: 12px; color: var(--ink-soft);
+  }
+  .tile-meta .view { color: var(--rose-deep); font-weight: 600; letter-spacing: 0.02em; }
+  .tile:hover .tile-meta .view { color: var(--ink); }
+
+  /* ---------- overlay ---------- */
+  .overlay-back {
+    position: fixed; inset: 0; z-index: 40;
+    background: color-mix(in oklab, var(--ink) 30%, transparent);
+    backdrop-filter: blur(7px);
+    display: flex; align-items: center; justify-content: center; padding: 28px;
+    animation: fade 0.25s ease;
+  }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+  .sheet {
+    width: min(640px, 100%); max-height: 90vh; overflow-y: auto;
+    background: var(--paper); border-radius: 28px; position: relative;
+    box-shadow: 0 40px 100px -40px color-mix(in oklab, var(--rose-deep) 80%, transparent);
+    animation: rise 0.34s cubic-bezier(.34,1.4,.64,1);
+  }
+  @keyframes rise { from { transform: translateY(26px) scale(0.97); opacity: 0; } to { transform: none; opacity: 1; } }
+  .sheet::-webkit-scrollbar { width: 9px; }
+  .sheet::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--rose) 40%, transparent); border-radius: 99px; border: 2px solid var(--paper); }
+
+  .sheet-banner {
+    position: relative; height: 132px; overflow: hidden;
+    display: flex; align-items: flex-end; padding: 18px 26px;
+  }
+  .sheet-banner .wash { position: absolute; inset: 0; }
+  .sheet-banner .spk { position: absolute; color: #fff; opacity: 0.85; text-shadow: 0 1px 8px rgba(0,0,0,.12); animation: floaty 5s ease-in-out infinite; }
+  .sheet-banner .head { position: relative; z-index: 2; display: flex; align-items: center; gap: 13px; }
+  .sheet-banner .head .ic {
+    width: 48px; height: 48px; border-radius: 50%; background: color-mix(in oklab, var(--paper) 86%, transparent);
+    display: flex; align-items: center; justify-content: center; font-size: 23px;
+    box-shadow: 0 6px 18px -8px rgba(0,0,0,.25);
+  }
+  .sheet-banner .head h2 { font-family: var(--title-font); font-weight: 600; font-size: 27px; color: #fff; text-transform: capitalize; text-shadow: 0 1px 10px color-mix(in oklab, var(--rose-deep) 60%, transparent); line-height: 1.05; }
+
+  .sheet-close {
+    position: absolute; top: 14px; right: 14px; z-index: 5;
+    width: 34px; height: 34px; border-radius: 50%; border: none; cursor: pointer;
+    background: color-mix(in oklab, var(--paper) 85%, transparent); color: var(--ink);
+    font-size: 17px; display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .sheet-close:hover { transform: rotate(90deg); background: var(--paper); }
+
+  .sheet-body { padding: 22px 28px 28px; }
+  .sheet-sub { font-size: 14px; line-height: 1.6; color: var(--ink-soft); margin-bottom: 4px; text-wrap: pretty; }
+
+  .sub-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+  .sub-row .sheet-sub { margin-bottom: 0; flex: 1; min-width: 0; }
+  .sub-edit-btn {
+    appearance: none; border: none; cursor: pointer; flex-shrink: 0; margin-top: 1px;
+    width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--blush-soft); color: var(--rose-deep);
+    transition: background 0.2s, color 0.2s;
+  }
+  .sub-edit-btn:hover { background: var(--rose); color: #fff; }
+  .sub-edit-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .sub-input {
+    flex: 1; min-width: 0; font-family: 'Quicksand', sans-serif; font-size: 14px; line-height: 1.5;
+    color: var(--ink); background: var(--paper);
+    border: 1px solid color-mix(in oklab, var(--rose) 28%, transparent);
+    border-radius: 11px; padding: 9px 12px; outline: none; resize: vertical; transition: border-color 0.2s;
+  }
+  .sub-input:focus { border-color: var(--rose); }
+
+  .sheet-progress { display: flex; align-items: center; gap: 16px; margin: 20px 0 8px; }
+  .sheet-progress .ring-wrap { position: relative; flex-shrink: 0; }
+  .sheet-progress .ring-wrap .pn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--title-font); font-size: 17px; color: var(--rose-deep); }
+  .sheet-progress .copy .big { font-family: var(--title-font); font-size: 18px; color: var(--ink); }
+  .sheet-progress .copy .small { font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+
+  .checklist-label {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--rose-deep); font-weight: 700; margin: 24px 0 10px;
+  }
+
+  /* month navigator */
+  .month-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; margin: 22px 0 12px;
+  }
+  .month-arrow {
+    width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%;
+    border: 1px solid color-mix(in oklab, var(--rose) 36%, transparent);
+    background: var(--paper); color: var(--rose-deep); font-size: 18px; line-height: 1;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.18s, transform 0.18s, opacity 0.18s;
+  }
+  .month-arrow:hover:not(:disabled) { background: var(--blush-soft); transform: scale(1.08); }
+  .month-arrow:disabled { opacity: 0.3; cursor: default; }
+  .month-title {
+    flex: 1; text-align: center; font-family: var(--title-font); font-size: 22px;
+    color: var(--ink); display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .month-now {
+    font-family: 'Quicksand', sans-serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; color: #fff;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    padding: 3px 9px; border-radius: 99px;
+  }
+
+  .month-strip {
+    display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 8px;
+    scrollbar-width: thin;
+  }
+  .month-strip::-webkit-scrollbar { height: 5px; }
+  .month-strip::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--rose) 36%, transparent); border-radius: 99px; }
+  .m-pill {
+    flex: 1 0 auto; min-width: 46px; display: flex; flex-direction: column; align-items: center;
+    gap: 1px; padding: 7px 6px; border-radius: 12px; cursor: pointer;
+    border: 1px solid color-mix(in oklab, var(--rose) 16%, transparent);
+    background: var(--blush-soft); color: var(--ink-soft);
+    font-family: 'Quicksand', sans-serif; font-size: 12px; font-weight: 600;
+    transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.18s;
+  }
+  .m-pill:hover { transform: translateY(-2px); }
+  .m-pill .m-pill-yr { font-size: 8.5px; font-weight: 500; opacity: 0.7; letter-spacing: 0.04em; }
+  .m-pill.now { border-color: color-mix(in oklab, var(--rose) 55%, transparent); color: var(--rose-deep); }
+  .m-pill.active {
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color: #fff; border-color: var(--rose-deep);
+    box-shadow: 0 8px 18px -10px var(--rose-deep);
+  }
+  .m-pill.active .m-pill-yr { opacity: 0.85; }
+
+  .month-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 6px 0 8px; }
+  .month-head .checklist-label { margin: 0; }
+  .month-count { font-size: 12px; color: var(--ink-soft); font-weight: 600; }
+
+  .empty-tasks {
+    text-align: center; padding: 30px 20px; border-radius: 16px;
+    border: 1px dashed color-mix(in oklab, var(--rose) 38%, transparent);
+    background: color-mix(in oklab, var(--blush-soft) 60%, var(--paper));
+  }
+  .empty-tasks .et-spark { font-size: 22px; color: var(--rose); margin-bottom: 6px; }
+  .empty-tasks .et-title { font-family: var(--title-font); font-size: 16px; color: var(--ink); }
+  .empty-tasks .et-sub { font-size: 12.5px; color: var(--ink-soft); margin-top: 4px; }
+  .check-row {
+    display: flex; align-items: flex-start; gap: 12px; padding: 11px 12px;
+    border-radius: 14px; cursor: pointer; position: relative;
+    transition: background 0.2s;
+  }
+  .check-row:hover { background: var(--blush-soft); }
+  .check-box {
+    width: 24px; height: 24px; border-radius: 8px; flex-shrink: 0; margin-top: 1px;
+    border: 2px solid color-mix(in oklab, var(--rose) 55%, transparent);
+    background: var(--paper); position: relative; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  }
+  .check-box svg { width: 14px; height: 14px; stroke: #fff; stroke-width: 3.4; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 22; stroke-dashoffset: 22; transition: stroke-dashoffset 0.3s ease 0.05s; }
+  .check-row.done .check-box { background: linear-gradient(135deg, var(--rose), var(--rose-deep)); border-color: var(--rose-deep); animation: pop 0.42s cubic-bezier(.34,1.7,.5,1); }
+  .check-row.done .check-box svg { stroke-dashoffset: 0; }
+  @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.32); } 100% { transform: scale(1); } }
+  .check-row .ctext { font-size: 14.5px; line-height: 1.5; color: var(--ink); padding-top: 2px; transition: color 0.3s; }
+  .check-row.done .ctext { color: var(--ink-soft); text-decoration: line-through; text-decoration-color: color-mix(in oklab, var(--rose) 60%, transparent); }
+
+  /* sparkle burst on check */
+  .burst { position: absolute; left: 18px; top: 18px; pointer-events: none; z-index: 6; }
+  .burst i {
+    position: absolute; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--rose-deep); opacity: 0;
+    animation: burst 0.66s ease-out forwards;
+  }
+  @keyframes burst {
+    0% { opacity: 1; transform: translate(0,0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--bx), var(--by)) scale(0.2); }
+  }
+
+  .notes {
+    width: 100%; margin-top: 22px; font-family: 'Quicksand', sans-serif; font-size: 13.5px;
+    color: var(--ink); background: var(--blush-soft);
+    border: 1px solid color-mix(in oklab, var(--rose) 24%, transparent);
+    border-radius: 14px; padding: 13px 15px; resize: vertical; min-height: 74px; outline: none;
+    line-height: 1.5;
+  }
+  .notes:focus { border-color: var(--rose); }
+  .notes::placeholder { color: var(--ink-soft); }
+
+  /* ---- task editing ---- */
+  .month-head-right { display: flex; align-items: center; gap: 10px; }
+  .edit-toggle {
+    appearance: none; cursor: pointer; font-family: 'Quicksand', sans-serif;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 5px 13px; border-radius: 99px;
+    border: 1px solid color-mix(in oklab, var(--rose) 42%, transparent);
+    background: var(--paper); color: var(--rose-deep);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .edit-toggle:hover { background: var(--blush-soft); }
+  .edit-toggle.on { background: linear-gradient(135deg, var(--rose), var(--rose-deep)); color: #fff; border-color: transparent; }
+
+  .edit-hint { font-size: 12px; color: var(--ink-soft); margin: 2px 2px 12px; }
+  .edit-row { display: flex; align-items: center; gap: 9px; padding: 5px 0; }
+  .edit-row .task-input {
+    flex: 1; min-width: 0; font-family: 'Quicksand', sans-serif; font-size: 14px;
+    color: var(--ink); background: var(--paper);
+    border: 1px solid color-mix(in oklab, var(--rose) 26%, transparent);
+    border-radius: 11px; padding: 10px 13px; outline: none; transition: border-color 0.2s;
+  }
+  .edit-row .task-input:focus { border-color: var(--rose); }
+  .edit-row .task-input::placeholder { color: var(--ink-soft); }
+  .del-task {
+    appearance: none; border: none; cursor: pointer; flex-shrink: 0;
+    width: 32px; height: 32px; border-radius: 9px; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--blush-soft); color: var(--rose-deep);
+    transition: background 0.2s, color 0.2s;
+  }
+  .del-task:hover { background: var(--rose); color: #fff; }
+  .add-task {
+    appearance: none; width: 100%; margin-top: 8px; padding: 12px; cursor: pointer;
+    border-radius: 13px; border: 1px dashed color-mix(in oklab, var(--rose) 48%, transparent);
+    background: transparent; color: var(--rose-deep);
+    font-family: 'Quicksand', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
+    transition: background 0.2s;
+  }
+  .add-task:hover { background: var(--blush-soft); }
+
+  /* footer */
+  .board-footer { text-align: center; margin-top: 44px; }
+  .reset-btn {
+    font-family: 'Quicksand', sans-serif; font-size: 12.5px; color: var(--ink-soft);
+    background: transparent; border: 1px solid color-mix(in oklab, var(--rose) 28%, transparent);
+    border-radius: 99px; padding: 8px 22px; cursor: pointer; letter-spacing: 0.04em;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .reset-btn:hover { color: var(--rose-deep); border-color: var(--rose); }
+
+  .ph-stripes { width: 100%; height: 100%; display: block; }
+  .tile-reframe-hint {
+    position: absolute; bottom: 10px; left: 10px; z-index: 4;
+    font-family: 'Quicksand', sans-serif; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.04em; color: var(--ink-soft);
+    background: color-mix(in oklab, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border: 1px solid color-mix(in oklab, var(--rose) 30%, transparent);
+    padding: 3px 9px; border-radius: 99px;
+    opacity: 0; transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  .tile:hover .tile-reframe-hint { opacity: 1; }
+
+  .tile-edit-photo {
+    position: absolute; bottom: 10px; right: 10px; z-index: 4;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: color-mix(in oklab, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border: 1px solid color-mix(in oklab, var(--rose) 45%, transparent);
+    color: var(--rose-deep); font-size: 15px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px -2px color-mix(in oklab, var(--rose-deep) 40%, transparent);
+    opacity: 0; transition: opacity 0.2s, transform 0.2s;
+  }
+  .tile:hover .tile-edit-photo { opacity: 1; }
+  .tile-edit-photo:hover { transform: scale(1.18) rotate(15deg); background: var(--blush-soft); }
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>/* BEGIN USAGE */
+/**
+ * <image-slot> — user-fillable image placeholder.
+ *
+ * Drop this into a deck, mockup, or page wherever you want the user to
+ * supply an image. You control the slot's shape and size; the user fills it
+ * by dragging an image file onto it (or clicking to browse). The dropped
+ * image persists across reloads via a .image-slots.state.json sidecar —
+ * same read-via-fetch / write-via-window.omelette pattern as
+ * design_canvas.jsx, so the filled slot shows on share links, downloaded
+ * zips, and PPTX export. Outside the omelette runtime the slot is read-only.
+ *
+ * The host bridge only allows sidecar writes at the project root, so the
+ * HTML that uses this component is assumed to live at the project root too
+ * (same constraint as design_canvas.jsx).
+ *
+ * Attributes:
+ *   id           Persistence key. REQUIRED for the drop to survive reload —
+ *                every slot on the page needs a distinct id.
+ *   shape        'rect' | 'rounded' | 'circle' | 'pill'   (default 'rounded')
+ *                'circle' applies 50% border-radius; on a non-square slot
+ *                that's an ellipse — set equal width and height for a true
+ *                circle.
+ *   radius       Corner radius in px for 'rounded'.       (default 12)
+ *   mask         Any CSS clip-path value. Overrides `shape` — use this for
+ *                hexagons, blobs, arbitrary polygons.
+ *   fit          object-fit: cover | contain | fill.       (default 'cover')
+ *                With cover (the default) double-clicking the filled slot
+ *                enters a reframe mode: the whole image spills past the mask
+ *                (translucent outside, opaque inside), drag to reposition,
+ *                corner-drag to scale. The crop persists alongside the image
+ *                in the sidecar. contain/fill stay static.
+ *   position     object-position for fit=contain|fill.     (default '50% 50%')
+ *   placeholder  Empty-state caption.                      (default 'Drop an image')
+ *   src          Optional initial/fallback image URL. A user drop overrides
+ *                it; clearing the drop reveals src again.
+ *
+ * Size and layout come from ordinary CSS on the element — width/height
+ * inline or from a parent grid — so it composes with any layout.
+ *
+ * Usage:
+ *   <image-slot id="hero"   style="width:800px;height:450px" shape="rounded" radius="20"
+ *               placeholder="Drop a hero image"></image-slot>
+ *   <image-slot id="avatar" style="width:120px;height:120px" shape="circle"></image-slot>
+ *   <image-slot id="kite"   style="width:300px;height:300px"
+ *               mask="polygon(50% 0, 100% 50%, 50% 100%, 0 50%)"></image-slot>
+ */
+/* END USAGE */
+
+
+/* ── image-slot localStorage persistence shim ──────────────────────────────
+   image-slot.js reads state via fetch('.image-slots.state.json') and writes
+   via window.omelette.writeFile. We intercept both to use localStorage so
+   thumbnails survive page closes without any server or sidecar file.
+---------------------------------------------------------------------------- */
+(function() {
+  const LS_KEY = 'glowup_image_slots';
+  window.omelette = {
+    writeFile: function(filename, data) {
+      if (filename.includes('.state.json')) localStorage.setItem(LS_KEY, data);
+      return Promise.resolve();
+    }
+  };
+  const _fetch = window.fetch.bind(window);
+  window.fetch = function(input, init) {
+    const url = typeof input === 'string' ? input : (input && input.url) || '';
+    if (url.includes('.image-slots.state.json')) {
+      const body = localStorage.getItem(LS_KEY) || '{}';
+      return Promise.resolve(new Response(body, {
+        status: 200, headers: { 'Content-Type': 'application/json' }
+      }));
+    }
+    return _fetch(input, init);
+  };
+})();
+
+(() => {
+  const STATE_FILE = '.image-slots.state.json';
+  // 2× a ~600px slot in a 1920-wide deck — retina-sharp without making the
+  // sidecar enormous. A 1200px WebP at q=0.85 is ~150-300KB.
+  const MAX_DIM = 1200;
+  // Raster formats only. SVG is excluded (can carry script; createImageBitmap
+  // on SVG blobs is inconsistent). GIF is excluded because the canvas
+  // re-encode keeps only the first frame, so an animated GIF would silently
+  // go still — better to reject than surprise.
+  const ACCEPT = ['image/png', 'image/jpeg', 'image/webp', 'image/avif'];
+
+  // ── Shared sidecar store ────────────────────────────────────────────────
+  // One fetch + immediate write-on-change for every <image-slot> on the
+  // page. Reads via fetch() so viewing works anywhere the HTML and sidecar
+  // are served together; writes go through window.omelette.writeFile, which
+  // the host allowlists to *.state.json basenames only.
+  const subs = new Set();
+  let slots = {};
+  // ids explicitly cleared before the sidecar fetch resolved — otherwise
+  // the merge below can't tell "never set" from "just deleted" and would
+  // resurrect the sidecar's stale value.
+  const tombstones = new Set();
+  let loaded = false;
+  let loadP = null;
+
+  function load() {
+    if (loadP) return loadP;
+    loadP = fetch(STATE_FILE)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        // Merge: sidecar loses to any in-memory change that raced ahead of
+        // the fetch (drop or clear) so neither is clobbered by hydration.
+        if (j && typeof j === 'object') {
+          const merged = Object.assign({}, j, slots);
+          // A framing-only write that raced ahead of hydration must not
+          // drop a user image that's only on disk — inherit u from the
+          // sidecar for any in-memory entry that lacks one.
+          for (const k in slots) {
+            if (merged[k] && !merged[k].u && j[k]) {
+              merged[k].u = typeof j[k] === 'string' ? j[k] : j[k].u;
+            }
+          }
+          for (const id of tombstones) delete merged[id];
+          slots = merged;
+        }
+        tombstones.clear();
+      })
+      .catch(() => {})
+      .then(() => { loaded = true; subs.forEach((fn) => fn()); });
+    return loadP;
+  }
+
+  // Serialize writes so two near-simultaneous drops on different slots
+  // can't reorder at the backend and leave the sidecar with only the
+  // first. A save requested mid-flight just marks dirty and re-fires on
+  // completion with the then-current slots.
+  let saving = false;
+  let saveDirty = false;
+  function save() {
+    if (saving) { saveDirty = true; return; }
+    const w = window.omelette && window.omelette.writeFile;
+    if (!w) return;
+    saving = true;
+    Promise.resolve(w(STATE_FILE, JSON.stringify(slots)))
+      .catch(() => {})
+      .then(() => { saving = false; if (saveDirty) { saveDirty = false; save(); } });
+  }
+
+  const S_MAX = 5;
+  const clampS = (s) => Math.max(1, Math.min(S_MAX, s));
+
+  // Normalize a stored slot value. Pre-reframe sidecars stored a bare
+  // data-URL string; newer ones store {u, s, x, y}. Either shape is valid.
+  function getSlot(id) {
+    const v = slots[id];
+    if (!v) return null;
+    return typeof v === 'string' ? { u: v, s: 1, x: 0, y: 0 } : v;
+  }
+
+  function setSlot(id, val) {
+    if (!id) return;
+    if (val) { slots[id] = val; tombstones.delete(id); }
+    else { delete slots[id]; if (!loaded) tombstones.add(id); }
+    subs.forEach((fn) => fn());
+    // A drop is rare + high-value — write immediately so nav-away can't lose
+    // it. Gate on the initial read so we don't overwrite a sidecar we haven't
+    // merged yet; the merge in load() keeps this change once the read lands.
+    if (loaded) save(); else load().then(save);
+  }
+
+  // ── Image downscale ─────────────────────────────────────────────────────
+  // Encode through a canvas so the sidecar carries resized bytes, not the
+  // raw upload. Longest side is capped at 2× the slot's rendered width
+  // (retina) and at MAX_DIM. WebP keeps alpha and is ~10× smaller than PNG
+  // for photos, so there's no need for per-image format picking.
+  async function toDataUrl(file, targetW) {
+    const bitmap = await createImageBitmap(file);
+    try {
+      const cap = Math.min(MAX_DIM, Math.max(1, Math.round(targetW * 2)) || MAX_DIM);
+      const scale = Math.min(1, cap / Math.max(bitmap.width, bitmap.height));
+      const w = Math.max(1, Math.round(bitmap.width * scale));
+      const h = Math.max(1, Math.round(bitmap.height * scale));
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(bitmap, 0, 0, w, h);
+      return canvas.toDataURL('image/webp', 0.85);
+    } finally {
+      bitmap.close && bitmap.close();
+    }
+  }
+
+  // ── Custom element ──────────────────────────────────────────────────────
+  const stylesheet =
+    ':host{display:inline-block;position:relative;vertical-align:top;' +
+    '  font:13px/1.3 system-ui,-apple-system,sans-serif;color:rgba(0,0,0,.55);width:240px;height:160px}' +
+    '.frame{position:absolute;inset:0;overflow:hidden;background:rgba(0,0,0,.04)}' +
+    // .frame img (clipped) and .spill (unclipped ghost + handles) share the
+    // same left/top/width/height in frame-%, computed by _applyView(), so the
+    // inside-mask crop and the outside-mask spill stay pixel-aligned.
+    '.frame img{position:absolute;max-width:none;transform:translate(-50%,-50%);' +
+    '  -webkit-user-drag:none;user-select:none;touch-action:none}' +
+    // Reframe mode (double-click): the full image spills past the mask. The
+    // spill layer is sized to the IMAGE bounds so its corners are where the
+    // resize handles belong. The ghost <img> inside is translucent; the real
+    // clipped <img> underneath shows the opaque in-mask crop.
+    '.spill{position:absolute;transform:translate(-50%,-50%);display:none;z-index:1;' +
+    '  cursor:grab;touch-action:none}' +
+    ':host([data-panning]) .spill{cursor:grabbing}' +
+    '.spill .ghost{position:absolute;inset:0;width:100%;height:100%;opacity:.35;' +
+    '  pointer-events:none;-webkit-user-drag:none;user-select:none;' +
+    '  box-shadow:0 0 0 1px rgba(0,0,0,.2),0 12px 32px rgba(0,0,0,.2)}' +
+    '.spill .handle{position:absolute;width:12px;height:12px;border-radius:50%;' +
+    '  background:#fff;box-shadow:0 0 0 1.5px #c96442,0 1px 3px rgba(0,0,0,.3);' +
+    '  transform:translate(-50%,-50%)}' +
+    '.spill .handle[data-c=nw]{left:0;top:0;cursor:nwse-resize}' +
+    '.spill .handle[data-c=ne]{left:100%;top:0;cursor:nesw-resize}' +
+    '.spill .handle[data-c=sw]{left:0;top:100%;cursor:nesw-resize}' +
+    '.spill .handle[data-c=se]{left:100%;top:100%;cursor:nwse-resize}' +
+    ':host([data-reframe]){z-index:10}' +
+    ':host([data-reframe]) .spill{display:block}' +
+    ':host([data-reframe]) .frame{box-shadow:0 0 0 2px #c96442}' +
+    '.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;' +
+    '  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;' +
+    '  cursor:pointer;user-select:none}' +
+    '.empty svg{opacity:.45}' +
+    '.empty .cap{max-width:90%;font-weight:500;letter-spacing:.01em}' +
+    '.empty .sub{font-size:11px}' +
+    '.empty .sub u{text-underline-offset:2px;text-decoration-color:rgba(0,0,0,.25)}' +
+    '.empty:hover .sub u{color:rgba(0,0,0,.75);text-decoration-color:currentColor}' +
+    ':host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;' +
+    '  background:rgba(201,100,66,.10)}' +
+    '.ring{position:absolute;inset:0;pointer-events:none;border:1.5px dashed rgba(0,0,0,.25);' +
+    '  transition:border-color .12s}' +
+    ':host([data-over]) .ring{border-color:#c96442}' +
+    ':host([data-filled]) .ring{display:none}' +
+    // Controls sit BELOW the mask (top:100%), absolutely positioned so the
+    // author-declared slot height is unaffected. The gap is padding, not a
+    // top offset, so the hover target stays contiguous with the frame.
+    '.ctl{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;' +
+    '  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2;' +
+    '  white-space:nowrap}' +
+    ':host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl' +
+    '  {opacity:1;pointer-events:auto}' +
+    '.ctl button{appearance:none;border:0;border-radius:6px;padding:5px 10px;cursor:pointer;' +
+    '  background:rgba(0,0,0,.65);color:#fff;font:11px/1 system-ui,-apple-system,sans-serif;' +
+    '  backdrop-filter:blur(6px)}' +
+    '.ctl button:hover{background:rgba(0,0,0,.8)}' +
+    '.err{position:absolute;left:8px;bottom:8px;right:8px;color:#b3261e;font-size:11px;' +
+    '  background:rgba(255,255,255,.85);padding:4px 6px;border-radius:5px;pointer-events:none}';
+
+  const icon =
+    '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+    '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>' +
+    '<path d="m21 15-5-5L5 21"/></svg>';
+
+  class ImageSlot extends HTMLElement {
+    static get observedAttributes() {
+      return ['shape', 'radius', 'mask', 'fit', 'position', 'placeholder', 'src', 'id'];
+    }
+
+    constructor() {
+      super();
+      const root = this.attachShadow({ mode: 'open' });
+      // .spill and .ctl sit OUTSIDE .frame so overflow:hidden + border-radius
+      // on the frame (circle, pill, rounded) can't clip them.
+      root.innerHTML =
+        '<style>' + stylesheet + '</style>' +
+        '<div class="frame" part="frame">' +
+        '  <img part="image" alt="" draggable="false" style="display:none">' +
+        '  <div class="empty" part="empty">' + icon +
+        '    <div class="cap"></div>' +
+        '    <div class="sub">or <u>browse files</u></div></div>' +
+        '  <div class="ring" part="ring"></div>' +
+        '</div>' +
+        '<div class="spill">' +
+        '  <img class="ghost" alt="" draggable="false">' +
+        '  <div class="handle" data-c="nw"></div><div class="handle" data-c="ne"></div>' +
+        '  <div class="handle" data-c="sw"></div><div class="handle" data-c="se"></div>' +
+        '</div>' +
+        '<div class="ctl"><button data-act="replace" title="Replace image">Replace</button>' +
+        '  <button data-act="clear" title="Remove image">Remove</button></div>' +
+        '<input type="file" accept="' + ACCEPT.join(',') + '" hidden>';
+      this._frame = root.querySelector('.frame');
+      this._ring = root.querySelector('.ring');
+      this._img = root.querySelector('.frame img');
+      this._empty = root.querySelector('.empty');
+      this._cap = root.querySelector('.cap');
+      this._sub = root.querySelector('.sub');
+      this._spill = root.querySelector('.spill');
+      this._ghost = root.querySelector('.ghost');
+      this._err = null;
+      this._input = root.querySelector('input');
+      this._depth = 0;
+      this._gen = 0;
+      this._view = { s: 1, x: 0, y: 0 };
+      this._subFn = () => this._render();
+      // Shadow-DOM listeners live with the shadow DOM — bound once here so
+      // disconnect/reconnect (e.g. React remount) doesn't stack handlers.
+      this._empty.addEventListener('click', () => this._input.click());
+      root.addEventListener('click', (e) => {
+        const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
+        if (act === 'replace') { this._exitReframe(true); this._input.click(); }
+        if (act === 'clear') {
+          this._exitReframe(false);
+          this._gen++;
+          this._local = null;
+          if (this.id) setSlot(this.id, null); else this._render();
+        }
+      });
+      this._input.addEventListener('change', () => {
+        const f = this._input.files && this._input.files[0];
+        if (f) this._ingest(f);
+        this._input.value = '';
+      });
+      // naturalWidth/Height aren't known until load — re-apply so the cover
+      // baseline is computed from real dimensions, not the 100%×100% fallback.
+      this._img.addEventListener('load', () => this._applyView());
+      // Gated on editable + fit=cover so share links and contain/fill slots
+      // stay static.
+      this.addEventListener('dblclick', (e) => {
+        if (!this.hasAttribute('data-editable') || !this._reframes()) return;
+        e.preventDefault();
+        if (this.hasAttribute('data-reframe')) this._exitReframe(true);
+        else this._enterReframe();
+      });
+      // Pan + resize both originate on the spill layer. A handle pointerdown
+      // drives an aspect-locked resize anchored at the opposite corner; any
+      // other pointerdown on the spill pans. Offsets are frame-% so a
+      // reframed slot survives responsive resize / PPTX export.
+      this._spill.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 || !this.hasAttribute('data-reframe')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        this._spill.setPointerCapture(e.pointerId);
+        const rect = this.getBoundingClientRect();
+        const fw = rect.width || 1, fh = rect.height || 1;
+        const corner = e.target.getAttribute && e.target.getAttribute('data-c');
+        let move;
+        if (corner) {
+          // Resize about the OPPOSITE corner. Viewport-px throughout (rect
+          // fw/fh, not clientWidth) so the math survives a transform:scale()
+          // ancestor — deck_stage renders slides scaled-to-fit.
+          const iw = this._img.naturalWidth || 1, ih = this._img.naturalHeight || 1;
+          const base = Math.max(fw / iw, fh / ih);
+          const sx = corner.includes('e') ? 1 : -1;
+          const sy = corner.includes('s') ? 1 : -1;
+          const s0 = this._view.s;
+          const w0 = iw * base * s0, h0 = ih * base * s0;
+          const cx0 = (50 + this._view.x) / 100 * fw;
+          const cy0 = (50 + this._view.y) / 100 * fh;
+          const ox = cx0 - sx * w0 / 2, oy = cy0 - sy * h0 / 2;
+          const diag0 = Math.hypot(w0, h0);
+          const ux = sx * w0 / diag0, uy = sy * h0 / diag0;
+          move = (ev) => {
+            const proj = (ev.clientX - rect.left - ox) * ux +
+                         (ev.clientY - rect.top - oy) * uy;
+            const s = clampS(s0 * proj / diag0);
+            const d = diag0 * s / s0;
+            this._view.s = s;
+            this._view.x = (ox + ux * d / 2) / fw * 100 - 50;
+            this._view.y = (oy + uy * d / 2) / fh * 100 - 50;
+            this._clampView();
+            this._applyView();
+          };
+        } else {
+          this.setAttribute('data-panning', '');
+          const start = { px: e.clientX, py: e.clientY, x: this._view.x, y: this._view.y };
+          move = (ev) => {
+            this._view.x = start.x + (ev.clientX - start.px) / fw * 100;
+            this._view.y = start.y + (ev.clientY - start.py) / fh * 100;
+            this._clampView();
+            this._applyView();
+          };
+        }
+        const up = () => {
+          try { this._spill.releasePointerCapture(e.pointerId); } catch {}
+          this._spill.removeEventListener('pointermove', move);
+          this._spill.removeEventListener('pointerup', up);
+          this._spill.removeEventListener('pointercancel', up);
+          this.removeAttribute('data-panning');
+          this._dragUp = null;
+        };
+        // Stashed so _exitReframe (Escape / outside-click mid-drag) can
+        // tear the capture + listeners down synchronously.
+        this._dragUp = up;
+        this._spill.addEventListener('pointermove', move);
+        this._spill.addEventListener('pointerup', up);
+        this._spill.addEventListener('pointercancel', up);
+      });
+      // Wheel zoom stays available inside reframe mode as a trackpad nicety —
+      // zooms toward the cursor (offset' = cursor·(1-k) + offset·k).
+      this.addEventListener('wheel', (e) => {
+        if (!this.hasAttribute('data-reframe')) return;
+        e.preventDefault();
+        const r = this.getBoundingClientRect();
+        const cx = (e.clientX - r.left) / r.width * 100 - 50;
+        const cy = (e.clientY - r.top) / r.height * 100 - 50;
+        const prev = this._view.s;
+        const next = clampS(prev * Math.pow(1.0015, -e.deltaY));
+        if (next === prev) return;
+        const k = next / prev;
+        this._view.s = next;
+        this._view.x = cx * (1 - k) + this._view.x * k;
+        this._view.y = cy * (1 - k) + this._view.y * k;
+        this._clampView();
+        this._applyView();
+      }, { passive: false });
+    }
+
+    connectedCallback() {
+      // Warn once per page — an id-less slot works for the session but
+      // cannot persist, and two id-less slots would share nothing.
+      if (!this.id && !ImageSlot._warned) {
+        ImageSlot._warned = true;
+        console.warn('<image-slot> without an id will not persist its dropped image.');
+      }
+      this.addEventListener('dragenter', this);
+      this.addEventListener('dragover', this);
+      this.addEventListener('dragleave', this);
+      this.addEventListener('drop', this);
+      subs.add(this._subFn);
+      // width%/height% in _applyView encode the frame aspect at call time —
+      // a host resize (responsive grid, pane divider) would stretch the
+      // image until the next _render. Re-render on size change: _render()
+      // re-seeds _view from stored before clamp/apply, so a shrink→grow
+      // cycle round-trips instead of ratcheting x/y toward the narrower
+      // frame's clamp range.
+      this._ro = new ResizeObserver(() => this._render());
+      this._ro.observe(this);
+      load();
+      this._render();
+    }
+
+    disconnectedCallback() {
+      subs.delete(this._subFn);
+      this.removeEventListener('dragenter', this);
+      this.removeEventListener('dragover', this);
+      this.removeEventListener('dragleave', this);
+      this.removeEventListener('drop', this);
+      if (this._ro) { this._ro.disconnect(); this._ro = null; }
+      this._exitReframe(false);
+    }
+
+    _enterReframe() {
+      if (this.hasAttribute('data-reframe')) return;
+      this.setAttribute('data-reframe', '');
+      this._applyView();
+      // Close on click outside (the spill handler stopPropagation()s so
+      // in-image drags don't reach this) and on Escape. Listeners are held
+      // on the instance so _exitReframe / disconnectedCallback can detach
+      // exactly what was attached.
+      this._outside = (e) => {
+        if (e.composedPath && e.composedPath().includes(this)) return;
+        this._exitReframe(true);
+      };
+      this._esc = (e) => { if (e.key === 'Escape') this._exitReframe(true); };
+      document.addEventListener('pointerdown', this._outside, true);
+      document.addEventListener('keydown', this._esc, true);
+    }
+
+    _exitReframe(commit) {
+      if (!this.hasAttribute('data-reframe')) return;
+      if (this._dragUp) this._dragUp();
+      this.removeAttribute('data-reframe');
+      this.removeAttribute('data-panning');
+      if (this._outside) document.removeEventListener('pointerdown', this._outside, true);
+      if (this._esc) document.removeEventListener('keydown', this._esc, true);
+      this._outside = this._esc = null;
+      if (commit) this._commitView();
+    }
+
+    attributeChangedCallback() { if (this.shadowRoot) this._render(); }
+
+    // handleEvent — one listener object for all four drag events keeps the
+    // add/remove symmetric and the depth counter correct.
+    handleEvent(e) {
+      if (e.type === 'dragenter' || e.type === 'dragover') {
+        // Without preventDefault the browser never fires 'drop'.
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
+        if (e.type === 'dragenter') this._depth++;
+        this.setAttribute('data-over', '');
+      } else if (e.type === 'dragleave') {
+        // dragenter/leave fire for every descendant crossing — count depth
+        // so hovering the icon inside the empty state doesn't flicker.
+        if (--this._depth <= 0) { this._depth = 0; this.removeAttribute('data-over'); }
+      } else if (e.type === 'drop') {
+        e.preventDefault();
+        e.stopPropagation();
+        this._depth = 0;
+        this.removeAttribute('data-over');
+        const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) this._ingest(f);
+      }
+    }
+
+    async _ingest(file) {
+      this._setError(null);
+      if (!file || ACCEPT.indexOf(file.type) < 0) {
+        this._setError('Drop a PNG, JPEG, WebP, or AVIF image.');
+        return;
+      }
+      // toDataUrl can take hundreds of ms on a large photo. A Clear or a
+      // newer drop during that window would be clobbered when this await
+      // resumes — bump + capture a generation so stale encodes bail.
+      const gen = ++this._gen;
+      try {
+        const w = this.clientWidth || this.offsetWidth || MAX_DIM;
+        const url = await toDataUrl(file, w);
+        if (gen !== this._gen) return;
+        // Only exit reframe once the new image is in hand — a rejected type
+        // or decode failure leaves the in-progress crop untouched.
+        this._exitReframe(false);
+        const val = { u: url, s: 1, x: 0, y: 0 };
+        setSlot(this.id || '', val);
+        // Keep a session-local copy for id-less slots so the drop still
+        // shows, even though it cannot persist.
+        if (!this.id) { this._local = val; this._render(); }
+      } catch (err) {
+        if (gen !== this._gen) return;
+        this._setError('Could not read that image.');
+        console.warn('<image-slot> ingest failed:', err);
+      }
+    }
+
+    _setError(msg) {
+      if (this._err) { this._err.remove(); this._err = null; }
+      if (!msg) return;
+      const d = document.createElement('div');
+      d.className = 'err'; d.textContent = msg;
+      this.shadowRoot.appendChild(d);
+      this._err = d;
+      setTimeout(() => { if (this._err === d) { d.remove(); this._err = null; } }, 3000);
+    }
+
+    // Reframing (pan/resize) is only meaningful for fit=cover — contain/fill
+    // keep the old object-fit path and double-click is a no-op.
+    _reframes() {
+      return this.hasAttribute('data-filled') &&
+        (this.getAttribute('fit') || 'cover') === 'cover';
+    }
+
+    // Cover-baseline geometry, shared by clamp/apply/resize. Null until the
+    // img has loaded (naturalWidth is 0 before that) or when the slot has no
+    // layout box — ResizeObserver fires with a 0×0 rect under display:none,
+    // and clamping against a degenerate 1×1 frame would silently pull the
+    // stored pan toward zero.
+    _geom() {
+      const iw = this._img.naturalWidth, ih = this._img.naturalHeight;
+      const fw = this.clientWidth, fh = this.clientHeight;
+      if (!iw || !ih || !fw || !fh) return null;
+      return { iw, ih, fw, fh, base: Math.max(fw / iw, fh / ih) };
+    }
+
+    _clampView() {
+      // Pan range on each axis is half the overflow past the frame edge.
+      const g = this._geom();
+      if (!g) return;
+      const mx = Math.max(0, (g.iw * g.base * this._view.s / g.fw - 1) * 50);
+      const my = Math.max(0, (g.ih * g.base * this._view.s / g.fh - 1) * 50);
+      this._view.x = Math.max(-mx, Math.min(mx, this._view.x));
+      this._view.y = Math.max(-my, Math.min(my, this._view.y));
+    }
+
+    _applyView() {
+      const g = this._geom();
+      const fit = this.getAttribute('fit') || 'cover';
+      if (fit !== 'cover' || !g) {
+        // Non-cover, or dimensions not known yet (before img load).
+        this._img.style.width = '100%';
+        this._img.style.height = '100%';
+        this._img.style.left = '50%';
+        this._img.style.top = '50%';
+        this._img.style.objectFit = fit;
+        this._img.style.objectPosition = this.getAttribute('position') || '50% 50%';
+        return;
+      }
+      // Cover baseline: img fills the frame on its tighter axis at s=1, so
+      // pan works immediately on the overflowing axis without zooming first.
+      // Width/height and left/top are all frame-% — depends only on the
+      // frame aspect ratio, so a responsive resize keeps the same crop. The
+      // spill layer mirrors the same box so its corners = image corners.
+      const k = g.base * this._view.s;
+      const w = (g.iw * k / g.fw * 100) + '%';
+      const h = (g.ih * k / g.fh * 100) + '%';
+      const l = (50 + this._view.x) + '%';
+      const t = (50 + this._view.y) + '%';
+      this._img.style.width = w; this._img.style.height = h;
+      this._img.style.left = l; this._img.style.top = t;
+      this._img.style.objectFit = '';
+      this._spill.style.width = w; this._spill.style.height = h;
+      this._spill.style.left = l; this._spill.style.top = t;
+    }
+
+    _commitView() {
+      const v = { s: this._view.s, x: this._view.x, y: this._view.y };
+      if (this._userUrl) v.u = this._userUrl;
+      // Framing-only (no u) persists too so an author-src slot remembers its
+      // crop; clearing the sidecar still falls through to src=.
+      if (this.id) setSlot(this.id, v);
+      else { this._local = v; }
+    }
+
+    _render() {
+      // Shape / mask. Presets use border-radius so the dashed ring can
+      // follow the rounded outline; clip-path is only applied for an
+      // explicit `mask` (the ring is hidden there since a rectangle
+      // dashed border chopped by an arbitrary polygon looks broken).
+      const mask = this.getAttribute('mask');
+      const shape = (this.getAttribute('shape') || 'rounded').toLowerCase();
+      let radius = '';
+      if (shape === 'circle') radius = '50%';
+      else if (shape === 'pill') radius = '9999px';
+      else if (shape === 'rounded') {
+        const n = parseFloat(this.getAttribute('radius'));
+        radius = (Number.isFinite(n) ? n : 12) + 'px';
+      }
+      this._frame.style.borderRadius = mask ? '' : radius;
+      this._frame.style.clipPath = mask || '';
+      this._ring.style.borderRadius = mask ? '' : radius;
+      this._ring.style.display = mask ? 'none' : '';
+
+      // Controls and reframe entry gate on this so share links stay read-only.
+      const editable = !!(window.omelette && window.omelette.writeFile);
+      this.toggleAttribute('data-editable', editable);
+      this._sub.style.display = editable ? '' : 'none';
+
+      // Content. The sidecar is also writable by the agent's write_file
+      // tool, so its value isn't guaranteed canvas-originated — only accept
+      // data:image/ URLs from it. The `src` attribute is author-controlled
+      // (Claude wrote it into the HTML) so it passes through unchanged.
+      let stored = this.id ? getSlot(this.id) : this._local;
+      if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
+      const srcAttr = this.getAttribute('src') || '';
+      this._userUrl = (stored && stored.u) || null;
+      const url = this._userUrl || srcAttr;
+      // Don't clobber an in-flight reframe with a store-triggered re-render.
+      if (!this.hasAttribute('data-reframe')) {
+        this._view = {
+          s: stored && Number.isFinite(stored.s) ? clampS(stored.s) : 1,
+          x: stored && Number.isFinite(stored.x) ? stored.x : 0,
+          y: stored && Number.isFinite(stored.y) ? stored.y : 0,
+        };
+      }
+      this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
+      // Toggle via style.display — the [hidden] attribute alone loses to
+      // the display:flex / display:block rules in the stylesheet above.
+      if (url) {
+        if (this._img.getAttribute('src') !== url) {
+          this._img.src = url;
+          this._ghost.src = url;
+        }
+        this._img.style.display = 'block';
+        this._empty.style.display = 'none';
+        this.setAttribute('data-filled', '');
+        this._clampView();
+        this._applyView();
+      } else {
+        this._img.style.display = 'none';
+        this._img.removeAttribute('src');
+        this._ghost.removeAttribute('src');
+        this._empty.style.display = 'flex';
+        this.removeAttribute('data-filled');
+      }
+    }
+  }
+
+  if (!customElements.get('image-slot')) {
+    customElements.define('image-slot', ImageSlot);
+  }
+})();
+</script>
+<script>window.__STAR_IMG__ = "data:image/png;base64,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";</script>
+<script type="text/babel">
+/* BEGIN USAGE */
+// tweaks-panel.jsx
+// Reusable Tweaks shell + form-control helpers.
+// Exports (to window): useTweaks, TweaksPanel, TweakSection, TweakRow, TweakSlider,
+//   TweakToggle, TweakRadio, TweakSelect, TweakText, TweakNumber, TweakColor, TweakButton.
+//
+// Owns the host protocol (listens for __activate_edit_mode / __deactivate_edit_mode,
+// posts __edit_mode_available / __edit_mode_set_keys / __edit_mode_dismissed) so
+// individual prototypes don't re-roll it. Ships a consistent set of controls so you
+// don't hand-draw <input type="range">, segmented radios, steppers, etc.
+//
+// Usage (in an HTML file that loads React + Babel):
+//
+//   const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+//     "primaryColor": "#D97757",
+//     "palette": ["#D97757", "#29261b", "#f6f4ef"],
+//     "fontSize": 16,
+//     "density": "regular",
+//     "dark": false
+//   }/*EDITMODE-END*/;
+//
+//   function App() {
+//     const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+//     return (
+//       <div style={{ fontSize: t.fontSize, color: t.primaryColor }}>
+//         Hello
+//         <TweaksPanel>
+//           <TweakSection label="Typography" />
+//           <TweakSlider label="Font size" value={t.fontSize} min={10} max={32} unit="px"
+//                        onChange={(v) => setTweak('fontSize', v)} />
+//           <TweakRadio  label="Density" value={t.density}
+//                        options={['compact', 'regular', 'comfy']}
+//                        onChange={(v) => setTweak('density', v)} />
+//           <TweakSection label="Theme" />
+//           <TweakColor  label="Primary" value={t.primaryColor}
+//                        options={['#D97757', '#2A6FDB', '#1F8A5B', '#7A5AE0']}
+//                        onChange={(v) => setTweak('primaryColor', v)} />
+//           <TweakColor  label="Palette" value={t.palette}
+//                        options={[['#D97757', '#29261b', '#f6f4ef'],
+//                                  ['#475569', '#0f172a', '#f1f5f9']]}
+//                        onChange={(v) => setTweak('palette', v)} />
+//           <TweakToggle label="Dark mode" value={t.dark}
+//                        onChange={(v) => setTweak('dark', v)} />
+//         </TweaksPanel>
+//       </div>
+//     );
+//   }
+//
+// TweakRadio is the segmented control for 2–3 short options (auto-falls-back to
+// TweakSelect past ~16/~10 chars per label); reach for TweakSelect directly when
+// options are many or long. For color tweaks always curate 3-4 options rather than
+// a free picker; an option can also be a whole 2–5 color palette (the stored value
+// is the array). The Tweak* controls are a floor, not a ceiling — build custom
+// controls inside the panel if a tweak calls for UI they don't cover.
+/* END USAGE */
+// ─────────────────────────────────────────────────────────────────────────────
+
+const __TWEAKS_STYLE = `
+  .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
+    max-height:calc(100vh - 32px);display:flex;flex-direction:column;
+    transform:scale(var(--dc-inv-zoom,1));transform-origin:bottom right;
+    background:rgba(250,249,247,.78);color:#29261b;
+    -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+    border:.5px solid rgba(255,255,255,.6);border-radius:14px;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
+    font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
+  .twk-hd{display:flex;align-items:center;justify-content:space-between;
+    padding:10px 8px 10px 14px;cursor:move;user-select:none}
+  .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
+  .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
+    width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
+  .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
+  .twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
+    overflow-y:auto;overflow-x:hidden;min-height:0;
+    scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
+  .twk-body::-webkit-scrollbar{width:8px}
+  .twk-body::-webkit-scrollbar-track{background:transparent;margin:2px}
+  .twk-body::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:4px;
+    border:2px solid transparent;background-clip:content-box}
+  .twk-body::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.25);
+    border:2px solid transparent;background-clip:content-box}
+  .twk-row{display:flex;flex-direction:column;gap:5px}
+  .twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+  .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;
+    color:rgba(41,38,27,.72)}
+  .twk-lbl>span:first-child{font-weight:500}
+  .twk-val{color:rgba(41,38,27,.5);font-variant-numeric:tabular-nums}
+
+  .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(41,38,27,.45);padding:10px 0 0}
+  .twk-sect:first-child{padding-top:0}
+
+  .twk-field{appearance:none;box-sizing:border-box;width:100%;min-width:0;height:26px;padding:0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;
+    background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}
+  .twk-field:focus{border-color:rgba(0,0,0,.25);background:rgba(255,255,255,.85)}
+  select.twk-field{padding-right:22px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(0,0,0,.5)' d='M0 0h10L5 6z'/></svg>");
+    background-repeat:no-repeat;background-position:right 8px center}
+
+  .twk-slider{appearance:none;-webkit-appearance:none;width:100%;height:4px;margin:6px 0;
+    border-radius:999px;background:rgba(0,0,0,.12);outline:none}
+  .twk-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+    width:14px;height:14px;border-radius:50%;background:#fff;
+    border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+  .twk-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;
+    background:#fff;border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+
+  .twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
+    background:rgba(0,0,0,.06);user-select:none}
+  .twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
+    background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(0,0,0,.12);
+    transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s}
+  .twk-seg.dragging .twk-seg-thumb{transition:none}
+  .twk-seg button{appearance:none;position:relative;z-index:1;flex:1;border:0;
+    background:transparent;color:inherit;font:inherit;font-weight:500;min-height:22px;
+    border-radius:6px;cursor:default;padding:4px 6px;line-height:1.2;
+    overflow-wrap:anywhere}
+
+  .twk-toggle{position:relative;width:32px;height:18px;border:0;border-radius:999px;
+    background:rgba(0,0,0,.15);transition:background .15s;cursor:default;padding:0}
+  .twk-toggle[data-on="1"]{background:#34c759}
+  .twk-toggle i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+    background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+  .twk-toggle[data-on="1"] i{transform:translateX(14px)}
+
+  .twk-num{display:flex;align-items:center;box-sizing:border-box;min-width:0;height:26px;padding:0 0 0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6)}
+  .twk-num-lbl{font-weight:500;color:rgba(41,38,27,.6);cursor:ew-resize;
+    user-select:none;padding-right:8px}
+  .twk-num input{flex:1;min-width:0;height:100%;border:0;background:transparent;
+    font:inherit;font-variant-numeric:tabular-nums;text-align:right;padding:0 8px 0 0;
+    outline:none;color:inherit;-moz-appearance:textfield}
+  .twk-num input::-webkit-inner-spin-button,.twk-num input::-webkit-outer-spin-button{
+    -webkit-appearance:none;margin:0}
+  .twk-num-unit{padding-right:8px;color:rgba(41,38,27,.45)}
+
+  .twk-btn{appearance:none;height:26px;padding:0 12px;border:0;border-radius:7px;
+    background:rgba(0,0,0,.78);color:#fff;font:inherit;font-weight:500;cursor:default}
+  .twk-btn:hover{background:rgba(0,0,0,.88)}
+  .twk-btn.secondary{background:rgba(0,0,0,.06);color:inherit}
+  .twk-btn.secondary:hover{background:rgba(0,0,0,.1)}
+
+  .twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;cursor:default;
+    background:transparent;flex-shrink:0}
+  .twk-swatch::-webkit-color-swatch-wrapper{padding:0}
+  .twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}
+  .twk-swatch::-moz-color-swatch{border:0;border-radius:5.5px}
+
+  .twk-chips{display:flex;gap:6px}
+  .twk-chip{position:relative;appearance:none;flex:1;min-width:0;height:46px;
+    padding:0;border:0;border-radius:6px;overflow:hidden;cursor:default;
+    box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.06);
+    transition:transform .12s cubic-bezier(.3,.7,.4,1),box-shadow .12s}
+  .twk-chip:hover{transform:translateY(-1px);
+    box-shadow:0 0 0 .5px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.12)}
+  .twk-chip[data-on="1"]{box-shadow:0 0 0 1.5px rgba(0,0,0,.85),
+    0 2px 6px rgba(0,0,0,.15)}
+  .twk-chip>span{position:absolute;top:0;bottom:0;right:0;width:34%;
+    display:flex;flex-direction:column;box-shadow:-1px 0 0 rgba(0,0,0,.1)}
+  .twk-chip>span>i{flex:1;box-shadow:0 -1px 0 rgba(0,0,0,.1)}
+  .twk-chip>span>i:first-child{box-shadow:none}
+  .twk-chip svg{position:absolute;top:6px;left:6px;width:13px;height:13px;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
+`;
+
+// ── useTweaks ───────────────────────────────────────────────────────────────
+// Single source of truth for tweak values. setTweak persists via the host
+// (__edit_mode_set_keys → host rewrites the EDITMODE block on disk).
+function useTweaks(defaults) {
+  const TWEAKS_KEY = 'glowup_tweaks';
+  const stored = React.useMemo(() => { try { return JSON.parse(localStorage.getItem(TWEAKS_KEY)); } catch { return null; } }, []);
+  const [values, setValues] = React.useState({ ...defaults, ...(stored || {}) });
+  const setTweak = React.useCallback((keyOrEdits, val) => {
+    const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null
+      ? keyOrEdits : { [keyOrEdits]: val };
+    setValues((prev) => {
+      const next = { ...prev, ...edits };
+      try { localStorage.setItem(TWEAKS_KEY, JSON.stringify(next)); } catch {}
+      return next;
+    });
+    window.dispatchEvent(new CustomEvent('tweakchange', { detail: edits }));
+  }, []);
+  return [values, setTweak];
+}
+
+// ── TweaksPanel ─────────────────────────────────────────────────────────────
+// Floating shell. Registers the protocol listener BEFORE announcing
+// availability — if the announce ran first, the host's activate could land
+// before our handler exists and the toolbar toggle would silently no-op.
+// The close button posts __edit_mode_dismissed so the host's toolbar toggle
+// flips off in lockstep; the host echoes __deactivate_edit_mode back which
+// is what actually hides the panel.
+function TweaksPanel({ title = 'Tweaks', children }) {
+  const [open, setOpen] = React.useState(false);
+  const dragRef = React.useRef(null);
+  const offsetRef = React.useRef({ x: 16, y: 16 });
+  const PAD = 16;
+
+  const clampToViewport = React.useCallback(() => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const w = panel.offsetWidth, h = panel.offsetHeight;
+    const maxRight = Math.max(PAD, window.innerWidth - w - PAD);
+    const maxBottom = Math.max(PAD, window.innerHeight - h - PAD);
+    offsetRef.current = {
+      x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)),
+      y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)),
+    };
+    panel.style.right = offsetRef.current.x + 'px';
+    panel.style.bottom = offsetRef.current.y + 'px';
+  }, []);
+
+  React.useEffect(() => {
+    if (!open) return;
+    clampToViewport();
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', clampToViewport);
+      return () => window.removeEventListener('resize', clampToViewport);
+    }
+    const ro = new ResizeObserver(clampToViewport);
+    ro.observe(document.documentElement);
+    return () => ro.disconnect();
+  }, [open, clampToViewport]);
+
+  React.useEffect(() => {
+    const onMsg = (e) => {
+      const t = e?.data?.type;
+      if (t === '__activate_edit_mode') setOpen(true);
+      else if (t === '__deactivate_edit_mode') setOpen(false);
+    };
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  const dismiss = () => {
+    setOpen(false);
+    window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+  };
+
+  const onDragStart = (e) => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const r = panel.getBoundingClientRect();
+    const sx = e.clientX, sy = e.clientY;
+    const startRight = window.innerWidth - r.right;
+    const startBottom = window.innerHeight - r.bottom;
+    const move = (ev) => {
+      offsetRef.current = {
+        x: startRight - (ev.clientX - sx),
+        y: startBottom - (ev.clientY - sy),
+      };
+      clampToViewport();
+    };
+    const up = () => {
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mouseup', up);
+    };
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', up);
+  };
+
+  if (!open) return null;
+  return (
+    <>
+      <style>{__TWEAKS_STYLE}</style>
+      <div ref={dragRef} className="twk-panel" data-omelette-chrome=""
+           style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+        <div className="twk-hd" onMouseDown={onDragStart}>
+          <b>{title}</b>
+          <button className="twk-x" aria-label="Close tweaks"
+                  onMouseDown={(e) => e.stopPropagation()}
+                  onClick={dismiss}>✕</button>
+        </div>
+        <div className="twk-body">
+          {children}
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ── Layout helpers ──────────────────────────────────────────────────────────
+
+function TweakSection({ label, children }) {
+  return (
+    <>
+      <div className="twk-sect">{label}</div>
+      {children}
+    </>
+  );
+}
+
+function TweakRow({ label, value, children, inline = false }) {
+  return (
+    <div className={inline ? 'twk-row twk-row-h' : 'twk-row'}>
+      <div className="twk-lbl">
+        <span>{label}</span>
+        {value != null && <span className="twk-val">{value}</span>}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+// ── Controls ────────────────────────────────────────────────────────────────
+
+function TweakSlider({ label, value, min = 0, max = 100, step = 1, unit = '', onChange }) {
+  return (
+    <TweakRow label={label} value={`${value}${unit}`}>
+      <input type="range" className="twk-slider" min={min} max={max} step={step}
+             value={value} onChange={(e) => onChange(Number(e.target.value))} />
+    </TweakRow>
+  );
+}
+
+function TweakToggle({ label, value, onChange }) {
+  return (
+    <div className="twk-row twk-row-h">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <button type="button" className="twk-toggle" data-on={value ? '1' : '0'}
+              role="switch" aria-checked={!!value}
+              onClick={() => onChange(!value)}><i /></button>
+    </div>
+  );
+}
+
+function TweakRadio({ label, value, options, onChange }) {
+  const trackRef = React.useRef(null);
+  const [dragging, setDragging] = React.useState(false);
+  // The active value is read by pointer-move handlers attached for the lifetime
+  // of a drag — ref it so a stale closure doesn't fire onChange for every move.
+  const valueRef = React.useRef(value);
+  valueRef.current = value;
+
+  // Segments wrap mid-word once per-segment width runs out. The track is
+  // ~248px (280 panel − 28 body pad − 4 seg pad), each button loses 12px
+  // to its own padding, and 11.5px system-ui averages ~6.3px/char — so 2
+  // options fit ~16 chars each, 3 fit ~10. Past that (or >3 options), fall
+  // back to a dropdown rather than wrap.
+  const labelLen = (o) => String(typeof o === 'object' ? o.label : o).length;
+  const maxLen = options.reduce((m, o) => Math.max(m, labelLen(o)), 0);
+  const fitsAsSegments = maxLen <= ({ 2: 16, 3: 10 }[options.length] ?? 0);
+  if (!fitsAsSegments) {
+    // <select> emits strings — map back to the original option value so the
+    // fallback stays type-preserving (numbers, booleans) like the segment path.
+    const resolve = (s) => {
+      const m = options.find((o) => String(typeof o === 'object' ? o.value : o) === s);
+      return m === undefined ? s : typeof m === 'object' ? m.value : m;
+    };
+    return <TweakSelect label={label} value={value} options={options}
+                        onChange={(s) => onChange(resolve(s))} />;
+  }
+  const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
+  const idx = Math.max(0, opts.findIndex((o) => o.value === value));
+  const n = opts.length;
+
+  const segAt = (clientX) => {
+    const r = trackRef.current.getBoundingClientRect();
+    const inner = r.width - 4;
+    const i = Math.floor(((clientX - r.left - 2) / inner) * n);
+    return opts[Math.max(0, Math.min(n - 1, i))].value;
+  };
+
+  const onPointerDown = (e) => {
+    setDragging(true);
+    const v0 = segAt(e.clientX);
+    if (v0 !== valueRef.current) onChange(v0);
+    const move = (ev) => {
+      if (!trackRef.current) return;
+      const v = segAt(ev.clientX);
+      if (v !== valueRef.current) onChange(v);
+    };
+    const up = () => {
+      setDragging(false);
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
+  return (
+    <TweakRow label={label}>
+      <div ref={trackRef} role="radiogroup" onPointerDown={onPointerDown}
+           className={dragging ? 'twk-seg dragging' : 'twk-seg'}>
+        <div className="twk-seg-thumb"
+             style={{ left: `calc(2px + ${idx} * (100% - 4px) / ${n})`,
+                      width: `calc((100% - 4px) / ${n})` }} />
+        {opts.map((o) => (
+          <button key={o.value} type="button" role="radio" aria-checked={o.value === value}>
+            {o.label}
+          </button>
+        ))}
+      </div>
+    </TweakRow>
+  );
+}
+
+function TweakSelect({ label, value, options, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <select className="twk-field" value={value} onChange={(e) => onChange(e.target.value)}>
+        {options.map((o) => {
+          const v = typeof o === 'object' ? o.value : o;
+          const l = typeof o === 'object' ? o.label : o;
+          return <option key={v} value={v}>{l}</option>;
+        })}
+      </select>
+    </TweakRow>
+  );
+}
+
+function TweakText({ label, value, placeholder, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <input className="twk-field" type="text" value={value} placeholder={placeholder}
+             onChange={(e) => onChange(e.target.value)} />
+    </TweakRow>
+  );
+}
+
+function TweakNumber({ label, value, min, max, step = 1, unit = '', onChange }) {
+  const clamp = (n) => {
+    if (min != null && n < min) return min;
+    if (max != null && n > max) return max;
+    return n;
+  };
+  const startRef = React.useRef({ x: 0, val: 0 });
+  const onScrubStart = (e) => {
+    e.preventDefault();
+    startRef.current = { x: e.clientX, val: value };
+    const decimals = (String(step).split('.')[1] || '').length;
+    const move = (ev) => {
+      const dx = ev.clientX - startRef.current.x;
+      const raw = startRef.current.val + dx * step;
+      const snapped = Math.round(raw / step) * step;
+      onChange(clamp(Number(snapped.toFixed(decimals))));
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+  return (
+    <div className="twk-num">
+      <span className="twk-num-lbl" onPointerDown={onScrubStart}>{label}</span>
+      <input type="number" value={value} min={min} max={max} step={step}
+             onChange={(e) => onChange(clamp(Number(e.target.value)))} />
+      {unit && <span className="twk-num-unit">{unit}</span>}
+    </div>
+  );
+}
+
+// Relative-luminance contrast pick — checkmarks drawn over a swatch need to
+// read on both #111 and #fafafa without per-option configuration. Hex input
+// only (#rgb / #rrggbb); named or rgb()/hsl() colors fall through to "light".
+function __twkIsLight(hex) {
+  const h = String(hex).replace('#', '');
+  const x = h.length === 3 ? h.replace(/./g, (c) => c + c) : h.padEnd(6, '0');
+  const n = parseInt(x.slice(0, 6), 16);
+  if (Number.isNaN(n)) return true;
+  const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  return r * 299 + g * 587 + b * 114 > 148000;
+}
+
+const __TwkCheck = ({ light }) => (
+  <svg viewBox="0 0 14 14" aria-hidden="true">
+    <path d="M3 7.2 5.8 10 11 4.2" fill="none" strokeWidth="2.2"
+          strokeLinecap="round" strokeLinejoin="round"
+          stroke={light ? 'rgba(0,0,0,.78)' : '#fff'} />
+  </svg>
+);
+
+// TweakColor — curated color/palette picker. Each option is either a single
+// hex string or an array of 1-5 hex strings; the card adapts — a lone color
+// renders solid, a palette renders colors[0] as the hero (left ~2/3) with the
+// rest stacked in a sharp column on the right. onChange emits the
+// option in the shape it was passed (string stays string, array stays array).
+// Without options it falls back to the native color input for back-compat.
+function TweakColor({ label, value, options, onChange }) {
+  if (!options || !options.length) {
+    return (
+      <div className="twk-row twk-row-h">
+        <div className="twk-lbl"><span>{label}</span></div>
+        <input type="color" className="twk-swatch" value={value}
+               onChange={(e) => onChange(e.target.value)} />
+      </div>
+    );
+  }
+  // Native <input type=color> emits lowercase hex per the HTML spec, so
+  // compare case-insensitively. String() guards JSON.stringify(undefined),
+  // which returns the primitive undefined (no .toLowerCase).
+  const key = (o) => String(JSON.stringify(o)).toLowerCase();
+  const cur = key(value);
+  return (
+    <TweakRow label={label}>
+      <div className="twk-chips" role="radiogroup">
+        {options.map((o, i) => {
+          const colors = Array.isArray(o) ? o : [o];
+          const [hero, ...rest] = colors;
+          const sup = rest.slice(0, 4);
+          const on = key(o) === cur;
+          return (
+            <button key={i} type="button" className="twk-chip" role="radio"
+                    aria-checked={on} data-on={on ? '1' : '0'}
+                    aria-label={colors.join(', ')} title={colors.join(' · ')}
+                    style={{ background: hero }}
+                    onClick={() => onChange(o)}>
+              {sup.length > 0 && (
+                <span>
+                  {sup.map((c, j) => <i key={j} style={{ background: c }} />)}
+                </span>
+              )}
+              {on && <__TwkCheck light={__twkIsLight(hero)} />}
+            </button>
+          );
+        })}
+      </div>
+    </TweakRow>
+  );
+}
+
+function TweakButton({ label, onClick, secondary = false }) {
+  return (
+    <button type="button" className={secondary ? 'twk-btn secondary' : 'twk-btn'}
+            onClick={onClick}>{label}</button>
+  );
+}
+
+Object.assign(window, {
+  useTweaks, TweaksPanel, TweakSection, TweakRow,
+  TweakSlider, TweakToggle, TweakRadio, TweakSelect,
+  TweakText, TweakNumber, TweakColor, TweakButton,
+});
+</script>
+<script type="text/babel">/* glowup components — exported to window at end */
+const { useState, useRef, useEffect } = React;
+
+function ProgressRing({ size = 88, stroke = 8, pct = 0, track, color }) {
+  const r = (size - stroke) / 2;
+  const c = 2 * Math.PI * r;
+  const off = c * (1 - pct / 100);
+  return (
+    <svg width={size} height={size} style={{ display: 'block', transform: 'rotate(-90deg)' }}>
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={track} strokeWidth={stroke} />
+      <circle
+        cx={size / 2} cy={size / 2} r={r} fill="none" stroke={color} strokeWidth={stroke}
+        strokeLinecap="round" strokeDasharray={c} strokeDashoffset={off}
+        style={{ transition: 'stroke-dashoffset 0.8s cubic-bezier(.4,0,.2,1)' }}
+      />
+    </svg>
+  );
+}
+
+function GoalWash({ tint }) {
+  return (
+    <div
+      className="tile-wash"
+      style={{ background: `linear-gradient(155deg, var(${tint[0]}), var(${tint[1]}))` }}
+    ></div>
+  );
+}
+
+/* merge a goal's default task lists with any per-month user edits in state */
+function resolveTasks(goal, gstate) {
+  const out = {};
+  const base = goal.tasks || {};
+  for (const k in base) out[k] = base[k];
+  const ov = (gstate && gstate.tasks) || {};
+  for (const k in ov) out[k] = ov[k];
+  return out;
+}
+
+/* count done/total across every month for a tasks map */
+function goalProgress(tasksMap, checks) {
+  let total = 0, done = 0;
+  for (const k in tasksMap) {
+    const arr = tasksMap[k] || [];
+    total += arr.length;
+    const c = (checks && checks[k]) || [];
+    done += arr.reduce((a, _, i) => a + (c[i] ? 1 : 0), 0);
+  }
+  return { total, done, pct: total ? Math.round((done / total) * 100) : 0 };
+}
+
+function BoardTile({ goal, gstate, onOpen, monthKey }) {
+  const checks = gstate.checks || {};
+  const { total, done, pct } = goalProgress(resolveTasks(goal, gstate), checks);
+  const bloom = total ? done / total : 0;
+  const bloomed = total > 0 && done === total;
+  const slotId = 'slot-' + goal.id;
+  const subs = gstate.subs || {};
+  const sub = (subs[monthKey] !== undefined && subs[monthKey] !== null) ? subs[monthKey] : goal.sub;
+
+  return (
+    <div className="tile" style={{ '--bloom': bloom }}>
+      <div
+        className="tile-photo"
+        style={{ height: goal.photoH, cursor: 'default' }}
+      >
+        <image-slot
+          id={slotId}
+          shape="rect"
+          fit="cover"
+          class="ph-tint"
+          src={goal.img || undefined}
+          placeholder={'drop a ' + goal.short + ' photo  \u2726'}
+          style={{ width: '100%', height: '100%' }}
+        ></image-slot>
+        <GoalWash tint={goal.tint} />
+        <div className="tile-sparkles">
+          <span>&#10022;</span><span>&#10023;</span><span>&#10022;</span><span>&#10023;</span>
+        </div>
+        <div className="tile-pct-badge">{pct}%</div>
+        {bloomed && <div className="tile-ribbon">in full bloom &#10047;</div>}
+        <button
+          className="tile-edit-photo"
+          title="Change photo"
+          onClick={(e) => {
+            e.stopPropagation();
+            const slot = document.getElementById('slot-' + goal.id);
+            if (!slot) return;
+            // Try shadow root file input first, then fall back to a click on the slot
+            const inp = slot.shadowRoot && slot.shadowRoot.querySelector('input[type=file]');
+            if (inp) { inp.click(); } else { slot.click(); }
+          }}
+        >&#x1F338;</button>
+        <div className="tile-reframe-hint">double-click to reposition</div>
+      </div>
+      <div className="tile-body" onClick={onOpen} role="button" tabIndex={0}
+           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(); } }}>
+        <div className="tile-head">
+          <div className="tile-icon">{goal.icon}</div>
+          <div className="tile-title">{goal.title}</div>
+          <div className="tile-stars">
+            {[1,2,3,4,5].map(i => {
+              const filled = i <= Math.round(pct / 20);
+              return (
+                <span key={i} className={'tile-star ' + (filled ? 'filled' : 'empty')}>
+                  {window.__STAR_IMG__
+                    ? <img src={window.__STAR_IMG__} className="tile-star-img" alt="★" />
+                    : '★'}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+        <p className="tile-sub">{sub}</p>
+        <div className="tile-meta">
+          <span>{done}/{total} tasks</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CheckRow({ text, checked, onToggle }) {
+  const [bursts, setBursts] = useState([]);
+  const bid = useRef(0);
+
+  function handle() {
+    if (!checked) {
+      const id = bid.current++;
+      const parts = Array.from({ length: 7 }, (_, i) => {
+        const a = (Math.PI * 2 * i) / 7 + Math.random() * 0.5;
+        const d = 20 + Math.random() * 16;
+        return { x: Math.cos(a) * d, y: Math.sin(a) * d };
+      });
+      setBursts((b) => [...b, { id, parts }]);
+      setTimeout(() => setBursts((b) => b.filter((x) => x.id !== id)), 700);
+    }
+    onToggle(!checked);
+  }
+
+  return (
+    <div className={'check-row' + (checked ? ' done' : '')} onClick={handle}>
+      <div className="check-box">
+        <svg viewBox="0 0 24 24"><path d="M4 12.5 L10 18 L20 6" /></svg>
+      </div>
+      <div className="ctext">{text}</div>
+      {bursts.map((b) => (
+        <div className="burst" key={b.id}>
+          {b.parts.map((p, i) => (
+            <i key={i} style={{ '--bx': p.x + 'px', '--by': p.y + 'px', animationDelay: (i * 8) + 'ms' }}></i>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function DetailOverlay({ goal, gstate, months, currentIndex, onToggleTask, onNote, onClose, onAddTask, onEditTask, onDeleteTask, onEditSub }) {
+  const [sel, setSel] = useState(currentIndex);
+  const [editing, setEditing] = useState(false);
+  const [editingSub, setEditingSub] = useState(false);
+
+  useEffect(() => {
+    function esc(e) { if (e.key === 'Escape') { if (editing) setEditing(false); else onClose(); } }
+    window.addEventListener('keydown', esc);
+    return () => window.removeEventListener('keydown', esc);
+  }, [onClose, editing]);
+
+  const checks = gstate.checks || {};
+  const allTasks = resolveTasks(goal, gstate);
+  const overall = goalProgress(allTasks, checks);
+
+  const month = months[sel];
+  const tasks = allTasks[month.key] || [];
+  const subs = gstate.subs || {};
+  const sub = (subs[month.key] !== undefined && subs[month.key] !== null) ? subs[month.key] : goal.sub;
+  const mChecks = checks[month.key] || [];
+  const mDone = tasks.reduce((a, _, i) => a + (mChecks[i] ? 1 : 0), 0);
+  const isNow = sel === currentIndex;
+
+  return (
+    <div className="overlay-back" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="sheet">
+        <button className="sheet-close" onClick={onClose} aria-label="close">&#10005;</button>
+        <div className="sheet-banner">
+          <div className="wash" style={{ background: `linear-gradient(135deg, var(${goal.tint[0]}), var(${goal.tint[1]}))` }}></div>
+          <span className="spk" style={{ top: '20%', left: '70%', fontSize: 16 }}>&#10022;</span>
+          <span className="spk" style={{ top: '55%', left: '86%', fontSize: 12, animationDelay: '1s' }}>&#10023;</span>
+          <span className="spk" style={{ top: '30%', left: '40%', fontSize: 11, animationDelay: '2s' }}>&#10022;</span>
+          <div className="head">
+            <div className="ic">{goal.icon}</div>
+            <h2>{goal.title}</h2>
+          </div>
+        </div>
+        <div className="sheet-body">
+          <div className="sub-row">
+            {editingSub ? (
+              <textarea
+                key={month.key}
+                className="sub-input"
+                rows={2}
+                autoFocus
+                defaultValue={sub}
+                placeholder={'description for ' + month.label + '\u2026'}
+                onBlur={(e) => { onEditSub(goal.id, month.key, e.target.value); setEditingSub(false); }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); onEditSub(goal.id, month.key, e.target.value); setEditingSub(false); }
+                  if (e.key === 'Escape') { e.preventDefault(); setEditingSub(false); }
+                }}
+              ></textarea>
+            ) : (
+              <p className="sheet-sub">{sub}</p>
+            )}
+            {!editingSub && (
+              <button className="sub-edit-btn" aria-label="edit this month's description" title="edit this month's description"
+                onClick={() => setEditingSub(true)}>
+                <svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path></svg>
+              </button>
+            )}
+          </div>
+
+          <div className="sheet-progress">
+            <div className="ring-wrap">
+              <ProgressRing size={64} stroke={7} pct={overall.pct}
+                track="var(--blush-soft)" color="var(--rose-deep)" />
+              <div className="pn">{overall.pct}%</div>
+            </div>
+            <div className="copy">
+              <div className="big">your year so far</div>
+              <div className="small">{overall.done} of {overall.total} tasks across all months</div>
+            </div>
+          </div>
+
+          {/* month navigator */}
+          <div className="month-nav">
+            <button className="month-arrow" disabled={sel === 0}
+              onClick={() => setSel((s) => Math.max(0, s - 1))} aria-label="previous month">&#8249;</button>
+            <div className="month-title">
+              {month.label}
+              {isNow && <span className="month-now">this month</span>}
+            </div>
+            <button className="month-arrow" disabled={sel === months.length - 1}
+              onClick={() => setSel((s) => Math.min(months.length - 1, s + 1))} aria-label="next month">&#8250;</button>
+          </div>
+
+          <div className="month-strip">
+            {months.map((m, i) => (
+              <button
+                key={m.key}
+                className={'m-pill' + (i === sel ? ' active' : '') + (i === currentIndex ? ' now' : '')}
+                onClick={() => setSel(i)}
+                title={m.label}
+              >{m.short}<span className="m-pill-yr">{m.yr}</span></button>
+            ))}
+          </div>
+
+          <div className="month-head">
+            <div className="checklist-label">tasks &middot; {month.label}</div>
+            <div className="month-head-right">
+              {!editing && tasks.length > 0 && <div className="month-count">{mDone}/{tasks.length} done</div>}
+              <button className={'edit-toggle' + (editing ? ' on' : '')}
+                onClick={() => setEditing((v) => !v)}>{editing ? 'done' : 'edit'}</button>
+            </div>
+          </div>
+
+          {editing ? (
+            <div className="edit-list">
+              <div className="edit-hint">Edit, remove, or add tasks for {month.label}.</div>
+              {tasks.map((m, i) => (
+                <div className="edit-row" key={month.key + '_e_' + i}>
+                  <input
+                    className="task-input"
+                    value={m}
+                    placeholder="task description&hellip;"
+                    onChange={(e) => onEditTask(goal.id, month.key, i, e.target.value)}
+                  />
+                  <button className="del-task" aria-label="delete task"
+                    onClick={() => onDeleteTask(goal.id, month.key, i)}>&#10005;</button>
+                </div>
+              ))}
+              <button className="add-task" onClick={() => onAddTask(goal.id, month.key)}>+ add a task</button>
+            </div>
+          ) : tasks.length === 0 ? (
+            <div className="empty-tasks">
+              <div className="et-spark">&#10047;</div>
+              <div className="et-title">No tasks for {month.label} yet</div>
+              <div className="et-sub">Tap &ldquo;edit&rdquo; above to add this month&rsquo;s tasks.</div>
+            </div>
+          ) : (
+            tasks.map((m, i) => (
+              <CheckRow key={month.key + '_' + i} text={m} checked={!!mChecks[i]}
+                onToggle={(v) => onToggleTask(goal.id, month.key, i, v)} />
+            ))
+          )}
+
+          <textarea
+            className="notes"
+            placeholder={'notes, wins, reflections\u2026'}
+            value={gstate.notes || ''}
+            onChange={(e) => onNote(goal.id, e.target.value)}
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { ProgressRing, BoardTile, CheckRow, DetailOverlay, goalProgress, resolveTasks });
+</script>
+<script type="text/babel">/* glowup app */
+const { useState: useStateA, useEffect: useEffectA, useMemo } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "palette": "Fairycore",
+  "titleFont": "Playfair Display",
+  "softness": 18,
+  "decor": true
+}/*EDITMODE-END*/;
+
+const PALETTES = {
+  "Fairycore": {
+    "--cream": "#fdfcf5", "--paper": "#fffef9", "--ink": "#64614a", "--ink-soft": "#9a9577",
+    "--rose": "#e7a3b0", "--rose-deep": "#d57f96", "--blush": "#f2c8cf", "--blush-soft": "#f8f3df",
+    "--butter": "#e9da8c", "--sage": "#b6cd96", "--sage-deep": "#95b372", "--lilac": "#aab0d8"
+  },
+  "Peach Glow": {
+    "--cream": "#fdf6f1", "--paper": "#fffdfb", "--ink": "#7a5448", "--ink-soft": "#b0897a",
+    "--rose": "#f0a98c", "--rose-deep": "#e08a6a", "--blush": "#f8d3c0", "--blush-soft": "#fce9df",
+    "--butter": "#f2d79c", "--sage": "#cdcf9f", "--sage-deep": "#b8bb86", "--lilac": "#e0b6c4"
+  },
+  "Sage Garden": {
+    "--cream": "#f6f8f1", "--paper": "#fffefb", "--ink": "#52614c", "--ink-soft": "#8a9a83",
+    "--rose": "#cdb6c4", "--rose-deep": "#b495a8", "--blush": "#dfe7cf", "--blush-soft": "#eef2e6",
+    "--butter": "#e6e2a0", "--sage": "#a9c594", "--sage-deep": "#8fb178", "--lilac": "#bcc6e0"
+  },
+  "Lilac Dream": {
+    "--cream": "#f8f5fb", "--paper": "#fffdff", "--ink": "#5d5172", "--ink-soft": "#998fb0",
+    "--rose": "#c9a9d8", "--rose-deep": "#b48ec9", "--blush": "#e4d3ee", "--blush-soft": "#f1e8f6",
+    "--butter": "#e8dca8", "--sage": "#bcd0c4", "--sage-deep": "#a3bdad", "--lilac": "#b3a8e0"
+  }
+};
+
+const FONTS = {
+  "Playfair Display": "'Playfair Display', serif",
+  "Cormorant": "'Cormorant Garamond', serif",
+  "EB Garamond": "'EB Garamond', serif"
+};
+
+const GOALS = [
+  { id: 'engineering', icon: '\uD83C\uDFDB\uFE0F', title: 'engineering prep', short: 'study',
+    sub: 'Fundamentals of Science and Math',
+    tint: ['--sage', '--butter'], photoH: 230,
+    milestones: [
+      'Complete Physics', 
+      'Complete Chemistry', 
+      'Start Math', 
+      'Start TU Delft renewables',
+    ] },
+  { id: 'german', icon: '\uD83C\uDDE9\uD83C\uDDEA', title: 'learning german', short: 'language',
+    sub: 'Basic conversational German',
+    tint: ['--butter', '--sage'], photoH: 190, img: 'data:image/jpeg;base64,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AAAQ888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888884+8888888888888881x888888888888888p8888888888qUKH8888888888888s4gc88888888888880kxc888888888ZbE88888888888888DL888888888888888IF8888888888s+888888888888888sc888888888888888sc888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888pDW8888888888888889Sd8888888888888888888888888sTk888888888888888sVm88888888888888888888888888s88888888888888888s88888888888888888888888888888888888w888888888888888888888888888888888888888888888wj8888888888888888888888888888888888888888888ppTd8888888888888888888888888881888888888888888Rr888888888888888888888888888ZgU88888888888888sM888888888888888888888888888sH88888888888888888888888888888888888888888888888888888888888888888888888888888p8U8888888888888888888888888888888888888888888Ll28888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888884084888888888888888888888888408888888888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',
+    milestones: [
+      'Complete 20 sessions on Udemy', 
+      'Complete first ten videos of Language Transfer', 
+      'Complete 30 pages of Netzwerk Neu',
+    ] },
+  { id: 'sewing', icon: '\uD83E\uDDF5', title: 'dressmaking', short: 'sewing',
+    sub: 'Dressmaking is fun',
+    tint: ['--blush', '--butter'], photoH: 300,
+    milestones: [
+      'Sew an outfit',
+    ] },
+  { id: 'brain', icon: '\uD83E\uDDE0', title: 'fixing focus', short: 'focus',
+    sub: 'ScreenTime from 9h to 3h',
+    tint: ['--sage-deep', '--sage'], photoH: 240,
+    milestones: [
+      'Read Fyodor’s',
+    ] },
+  { id: 'training', icon: '\uD83E\uDD77', title: 'training & fitness', short: 'movement',
+    sub: 'Discipline is key',
+    tint: ['--rose', '--butter'], photoH: 200,
+    milestones: [
+      'Start Krav Maga 7am batch',
+    ] },
+  { id: 'youtube', icon: '\uD83C\uDFA5', title: 'youtube channel', short: 'creative',
+    sub: 'Art Channel',
+    tint: ['--butter', '--sage-deep'], photoH: 220,
+    milestones: [
+      'Brainstorm and come up with a theme', 
+      'Open an Instagram page', 
+      'Look up Procreate animation',
+    ] },
+];
+
+/* ---- monthly timeline: June 2026 → March 2027 ---- */
+const MONTHS = [
+  { key: '2026-06', label: 'June 2026', short: 'Jun', yr: "\u201926" },
+  { key: '2026-07', label: 'July 2026', short: 'Jul', yr: "\u201926" },
+  { key: '2026-08', label: 'August 2026', short: 'Aug', yr: "\u201926" },
+  { key: '2026-09', label: 'September 2026', short: 'Sep', yr: "\u201926" },
+  { key: '2026-10', label: 'October 2026', short: 'Oct', yr: "\u201926" },
+  { key: '2026-11', label: 'November 2026', short: 'Nov', yr: "\u201926" },
+  { key: '2026-12', label: 'December 2026', short: 'Dec', yr: "\u201926" },
+  { key: '2027-01', label: 'January 2027', short: 'Jan', yr: "\u201927" },
+  { key: '2027-02', label: 'February 2027', short: 'Feb', yr: "\u201927" },
+  { key: '2027-03', label: 'March 2027', short: 'Mar', yr: "\u201927" },
+];
+
+function currentMonthIndex() {
+  const d = new Date();
+  const k = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+  const i = MONTHS.findIndex((m) => m.key === k);
+  if (i >= 0) return i;
+  const cur = d.getFullYear() * 12 + d.getMonth();
+  const start = 2026 * 12 + 5; // June 2026
+  return cur < start ? 0 : MONTHS.length - 1;
+}
+const CURRENT_MONTH = currentMonthIndex();
+
+/* ---- per-month task lists ----------------------------------------------
+   Provide your monthly tasks here, e.g.
+     RAW_TASKS.engineering['2026-06'] = ['Research universities', 'Shortlist 3'];
+   Month keys run '2026-06' … '2027-03'. Any month left out shows an empty state.
+   (For now each goal's original checkpoints sit in the opening month as a
+   placeholder — they'll be replaced once you send the real month-by-month lists.)
+------------------------------------------------------------------------- */
+const RAW_TASKS = {};
+
+GOALS.forEach((g) => {
+  g.tasks = {};
+  MONTHS.forEach((m, idx) => {
+    const provided = RAW_TASKS[g.id] && RAW_TASKS[g.id][m.key];
+    g.tasks[m.key] = provided ? provided.slice()
+      : (idx === 0 ? (g.milestones || []).slice() : []);
+  });
+});
+
+const KEY = 'glowup_v2';
+const BOARD_ORDER = ['engineering', 'training', 'german', 'brain', 'sewing', 'youtube'];
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } }
+function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch {} }
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const [state, setState] = useStateA(load);
+  const [open, setOpen] = useStateA(null);
+  const [ovMonth, setOvMonth] = useStateA(CURRENT_MONTH);
+
+  useEffectA(() => { save(state); }, [state]);
+
+  function gs(id) { return state[id] || { checks: {}, notes: '' }; }
+
+  function toggleTask(id, monthKey, i, v) {
+    setState((prev) => {
+      const cur = prev[id] || { checks: {}, notes: '' };
+      const checks = { ...(cur.checks || {}) };
+      const arr = (checks[monthKey] || []).slice();
+      arr[i] = v;
+      checks[monthKey] = arr;
+      return { ...prev, [id]: { ...cur, checks } };
+    });
+  }
+  function note(id, val) {
+    setState((prev) => ({ ...prev, [id]: { ...(prev[id] || { checks: {} }), notes: val } }));
+  }
+
+  function editSub(id, monthKey, val) {
+    setState((prev) => {
+      const cur = prev[id] || { checks: {} };
+      return { ...prev, [id]: { ...cur, subs: { ...(cur.subs || {}), [monthKey]: val } } };
+    });
+  }
+
+  /* edit the per-month task list (persists as an override in state) */
+  function setGoalTasks(id, monthKey, updater) {
+    setState((prev) => {
+      const goal = GOALS.find((g) => g.id === id);
+      const cur = prev[id] || { checks: {}, notes: '' };
+      const curTasks = (cur.tasks && cur.tasks[monthKey] !== undefined)
+        ? cur.tasks[monthKey] : (goal.tasks[monthKey] || []);
+      const curChecks = (cur.checks && cur.checks[monthKey]) || [];
+      const r = updater(curTasks.slice(), curChecks.slice());
+      return {
+        ...prev,
+        [id]: {
+          ...cur,
+          tasks: { ...(cur.tasks || {}), [monthKey]: r.tasks },
+          checks: { ...(cur.checks || {}), [monthKey]: r.checks },
+        },
+      };
+    });
+  }
+  function addTask(id, mk) { setGoalTasks(id, mk, (t, c) => { t.push(''); return { tasks: t, checks: c }; }); }
+  function editTask(id, mk, i, text) { setGoalTasks(id, mk, (t, c) => { t[i] = text; return { tasks: t, checks: c }; }); }
+  function deleteTask(id, mk, i) { setGoalTasks(id, mk, (t, c) => { t.splice(i, 1); c.splice(i, 1); return { tasks: t, checks: c }; }); }
+  function resetAll() {
+    if (window.confirm('Reset all progress on your vision board? This cannot be undone.')) {
+      setState({});
+    }
+  }
+
+  /* stats for the selected overview month */
+  const stats = useMemo(() => {
+    const mk = MONTHS[ovMonth].key;
+    let total = 0, done = 0, bloomed = 0, started = 0;
+    GOALS.forEach((g) => {
+      const arr = resolveTasks(g, gs(g.id))[mk] || [];
+      const c = (gs(g.id).checks || {})[mk] || [];
+      const d = arr.reduce((a, _, i) => a + (c[i] ? 1 : 0), 0);
+      total += arr.length; done += d;
+      if (arr.length > 0 && d === arr.length) bloomed++;
+      if (d > 0) started++;
+    });
+    return { total, done, bloomed, started, pct: total ? Math.round((done / total) * 100) : 0 };
+  }, [state, ovMonth]);
+
+  const pal = PALETTES[t.palette] || PALETTES["Fairycore"];
+  const appVars = { ...pal, '--radius': t.softness + 'px', '--title-font': FONTS[t.titleFont] || FONTS["Playfair Display"] };
+  const openGoal = open ? GOALS.find((g) => g.id === open) : null;
+
+  return (
+    <div className={'app' + (t.decor ? '' : ' decor-off')} style={appVars}>
+      <div className="decor">
+        <div className="orb a"></div><div className="orb b"></div><div className="orb c"></div>
+        <span className="twinkle" style={{ top: '14%', left: '12%' }}>&#10022;</span>
+        <span className="twinkle" style={{ top: '22%', left: '84%', animationDelay: '2s' }}>&#10023;</span>
+        <span className="twinkle" style={{ top: '64%', left: '8%', animationDelay: '3.4s' }}>&#10022;</span>
+        <span className="twinkle" style={{ top: '78%', left: '90%', animationDelay: '1.2s' }}>&#10023;</span>
+        <span className="twinkle" style={{ top: '46%', left: '52%', animationDelay: '4.2s' }}>&#10022;</span>
+      </div>
+
+      <div className="shell">
+        <header className="masthead">
+          <h1><span className="star">&#10022;</span>Glow Up Era<span className="star">&#10022;</span></h1>
+          <div className="dates">June 2026 &nbsp;&rarr;&nbsp; March 2027 &middot; a vision board that blooms with you</div>
+        </header>
+
+        <div className="overview">
+          <div className="ov-monthnav">
+            <button className="ov-arrow" disabled={ovMonth === 0}
+              onClick={() => setOvMonth((m) => Math.max(0, m - 1))} aria-label="previous month">&#8249;</button>
+            <div className="ov-month-label">
+              {MONTHS[ovMonth].label}
+              {ovMonth === CURRENT_MONTH && <span className="month-now">this month</span>}
+            </div>
+            <button className="ov-arrow" disabled={ovMonth === MONTHS.length - 1}
+              onClick={() => setOvMonth((m) => Math.min(MONTHS.length - 1, m + 1))} aria-label="next month">&#8250;</button>
+          </div>
+          <div className="ov-main">
+            <div className="ring-wrap">
+              <ProgressRing size={104} stroke={10} pct={stats.pct}
+                track="var(--blush-soft)" color="var(--rose-deep)" />
+              <div className="ring-center">
+                <div className="num">{stats.pct}%</div>
+                <div className="lbl">in bloom</div>
+              </div>
+            </div>
+            <div className="ov-stats">
+              <div className="ov-stat"><div className="n">{stats.done}</div><div className="t">tasks done</div></div>
+              <div className="ov-stat"><div className="n">{stats.total - stats.done}</div><div className="t">still to go</div></div>
+              <div className="ov-stat"><div className="n">{stats.started}/{GOALS.length}</div><div className="t">dreams begun</div></div>
+              <div className="ov-stat"><div className="n">{stats.bloomed}</div><div className="t">in full bloom</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="board">
+          {BOARD_ORDER.map((id) => GOALS.find((g) => g.id === id)).map((g) => (
+            <BoardTile key={g.id} goal={g} gstate={gs(g.id)} monthKey={MONTHS[CURRENT_MONTH].key} onOpen={() => setOpen(g.id)} />
+          ))}
+        </div>
+
+        <div className="board-footer">
+          <button className="reset-btn" onClick={resetAll}>reset all progress</button>
+        </div>
+      </div>
+
+      {openGoal && (
+        <DetailOverlay
+          goal={openGoal}
+          gstate={gs(openGoal.id)}
+          months={MONTHS}
+          currentIndex={CURRENT_MONTH}
+          onToggleTask={toggleTask}
+          onNote={note}
+          onAddTask={addTask}
+          onEditTask={editTask}
+          onDeleteTask={deleteTask}
+          onEditSub={editSub}
+          onClose={() => setOpen(null)}
+        />
+      )}
+
+      <TweaksPanel>
+        <TweakSection label="Palette" />
+        <TweakSelect label="Colour theme" value={t.palette}
+          options={Object.keys(PALETTES)}
+          onChange={(v) => setTweak('palette', v)} />
+        <TweakSection label="Typography" />
+        <TweakRadio label="Title font" value={t.titleFont}
+          options={Object.keys(FONTS)}
+          onChange={(v) => setTweak('titleFont', v)} />
+        <TweakSection label="Feel" />
+        <TweakSlider label="Corner softness" value={t.softness} min={6} max={30} step={1} unit="px"
+          onChange={(v) => setTweak('softness', v)} />
+        <TweakToggle label="Background sparkles" value={t.decor}
+          onChange={(v) => setTweak('decor', v)} />
+      </TweaksPanel>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+
+</body>
+</html>
